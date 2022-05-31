@@ -1,0 +1,20 @@
+@import "../settings/mixins.scss";
+@import "../settings/colors.scss";
+
+.navbar {
+  display: flex;
+  padding: toRem(13) toRem(30);
+  &__logo {
+    display: flex;
+    align-items: center;
+    img {
+      width: toRem(86);
+      margin-right: 0.5rem;
+    }
+    h3 {
+      color: $text-red-main;
+      font-size: toRem(32);
+      font-weight: 600;
+    }
+  }
+}
