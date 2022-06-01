@@ -1,11 +1,14 @@
-import HomeOpen from "./components/HomeOpen";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./components/Home";
 import "./styles/main.scss";
 
 function App() {
   return (
-    <>
-      <HomeOpen />
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

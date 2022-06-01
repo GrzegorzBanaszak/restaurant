@@ -1,0 +1,59 @@
+@import "../settings/mixins.scss";
+@import "../settings/colors.scss";
+.navMobile {
+  position: sticky;
+  padding: toRem(13) toRem(30);
+  background-color: white;
+  a {
+    text-decoration: none;
+  }
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__contant {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+  }
+  &__toggle {
+    cursor: pointer;
+  }
+  &__link {
+    font-size: toRem(32);
+    text-transform: uppercase;
+    color: $text-red-main;
+    margin: 0.4rem;
+  }
+  &__btns {
+    margin-top: 0.4rem;
+    display: flex;
+    gap: 0.6rem;
+  }
+  &__btn {
+    width: toRem(90);
+    height: toRem(27);
+    border-radius: 15px;
+    background-color: $text-red-main;
+    color: white;
+    display: block;
+    text-align: center;
+  }
+  &__logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    img {
+      width: toRem(44);
+      margin-right: 0.5rem;
+    }
+    h3 {
+      color: $text-red-main;
+      font-size: 1rem;
+      font-weight: 600;
+    }
+  }
+}
