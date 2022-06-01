@@ -1,0 +1,50 @@
+@import "../settings/mixins.scss";
+@import "../settings/colors.scss";
+.open {
+  width: 100%;
+  min-height: 100vh;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    top: 0;
+    left: 0;
+  }
+  &__container {
+    z-index: 2;
+    position: relative;
+    height: calc(100vh - 94px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    padding: 0 0.6rem;
+  }
+  &__icons {
+    width: 60%;
+    display: flex;
+    margin: 1rem 0;
+    justify-content: space-between;
+  }
+  &__title {
+    font-size: toRem(42);
+    text-align: center;
+  }
+  &__description {
+    font-size: toRem(18);
+    text-align: center;
+  }
+  &__link {
+    margin-top: 2rem;
+    @include makeBtn(268, 69, 30, 24);
+    text-decoration: none;
+  }
+}

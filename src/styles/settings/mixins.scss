@@ -2,3 +2,16 @@
   $remValue: calc($value / 16) + rem;
   @return $remValue;
 }
+
+@mixin makeBtn($width, $height, $redius, $fontSize) {
+  width: toRem($width);
+  height: toRem($height);
+  border-radius: toRem($redius);
+  font-size: toRem($fontSize);
+  background-color: #e65100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+}
