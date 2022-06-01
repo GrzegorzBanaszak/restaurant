@@ -1,6 +1,5 @@
 import React from "react";
 import Nav from "./Nav";
-import NavMobile from "./NavMobile";
 import "../styles/components/HomeOpen.scss";
 import bg from "../assets/pizza-open.png";
 import { Link } from "react-router-dom";
@@ -11,7 +10,6 @@ const HomeOpen = () => {
   const iconSize = 27;
   return (
     <section className="open" style={{ backgroundImage: `url(${bg})` }}>
-      <NavMobile />
       <div className="open__container">
         <h1 className="open__title">A WONDERFUL DISH </h1>
         <div className="open__icons">

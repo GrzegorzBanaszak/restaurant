@@ -1,9 +1,11 @@
 @import "../settings/mixins.scss";
 @import "../settings/colors.scss";
 .navMobile {
-  position: sticky;
+  position: fixed;
   padding: toRem(13) toRem(30);
   background-color: white;
+  width: 100%;
+  top: 0;
   z-index: 3;
   a {
     text-decoration: none;

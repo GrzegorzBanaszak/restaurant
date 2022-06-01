@@ -22,6 +22,7 @@ const NavMobile = () => {
         />
       </div>
       <motion.div
+        initial={{ height: 0 }}
         animate={{ height: isOpen ? "250px" : 0, transition: { delay: 0.2 } }}
         className="navMobile__contant"
       >
