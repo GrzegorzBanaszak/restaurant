@@ -7,11 +7,7 @@ import IconInstagram from "../icons/IconInstagram";
 import IconMail from "../icons/IconMail";
 const HomeContact = () => {
   return (
-    <section
-      className="contact"
-      style={{ backgroundImage: `url(${bg})` }}
-      styleName="contact"
-    >
+    <section className="contact" style={{ backgroundImage: `url(${bg})` }}>
       <div className="contact__container">
         <h3 className="contact__title">Kontakt</h3>
         <div className="contact__element">
