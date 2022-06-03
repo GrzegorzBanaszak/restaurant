@@ -1,4 +1,5 @@
 import React from "react";
+import HomeContact from "./HomeContact";
 import HomeMake from "./HomeMake";
 import HomeMenu from "./HomeMenu";
 import HomeOpen from "./HomeOpen";
@@ -13,6 +14,7 @@ const Home = () => {
       <HomeSteps />
       <HomeMenu />
       <HomeMake />
+      <HomeContact />
     </>
   );
 };
