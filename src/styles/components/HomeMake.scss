@@ -1,0 +1,34 @@
+@import "../settings/mixins.scss";
+@import "../settings/colors.scss";
+
+.make {
+  background-color: $bg-gray;
+  &__title {
+    background-color: $text-red-main;
+    color: white;
+    padding: 2rem 0;
+    text-align: center;
+    font-size: 1.3rem;
+  }
+  &__container {
+    color: $text-light-black;
+  }
+  &__content {
+    padding: 2rem 0;
+    h4 {
+      font-size: toRem(26);
+      text-align: center;
+      padding: 1rem;
+    }
+    p {
+      text-align: center;
+      margin: 1.3rem 0;
+      font-size: 1.2rem;
+    }
+    a {
+      text-decoration: none;
+      @include makeBtn(268, 69, 30, 24);
+      margin: 0 auto;
+    }
+  }
+}

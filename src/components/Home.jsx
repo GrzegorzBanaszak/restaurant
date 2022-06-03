@@ -1,4 +1,5 @@
 import React from "react";
+import HomeMake from "./HomeMake";
 import HomeMenu from "./HomeMenu";
 import HomeOpen from "./HomeOpen";
 import HomeSteps from "./HomeSteps";
@@ -11,6 +12,7 @@ const Home = () => {
       <HomeOpen />
       <HomeSteps />
       <HomeMenu />
+      <HomeMake />
     </>
   );
 };
