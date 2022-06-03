@@ -48,3 +48,27 @@
     text-decoration: none;
   }
 }
+
+@include desktop {
+  .open {
+    background-position-y: bottom 30%;
+    &::after {
+      display: none;
+    }
+    &__title {
+      font-size: toRem(64);
+      text-align: center;
+    }
+    &__icons {
+      margin: 2rem 0;
+    }
+    &__container {
+      width: 50%;
+      padding: 0 4rem;
+    }
+    &__description {
+      font-size: toRem(24);
+      margin-bottom: 2rem;
+    }
+  }
+}

@@ -1,15 +1,34 @@
 import React from "react";
-import Nav from "./Nav";
 import "../styles/components/HomeOpen.scss";
-import bg from "../assets/pizza-open.png";
+import bgMobile from "../assets/pizza-open.png";
+import bgDesktop from "../assets/pizza-open-desktop.jpg";
 import { Link } from "react-router-dom";
 import { IoFastFoodOutline, IoIceCreamOutline } from "react-icons/io5";
 import { GiFullPizza } from "react-icons/gi";
 import { BiCoffeeTogo } from "react-icons/bi";
+import { useState } from "react";
+import { useEffect } from "react";
 const HomeOpen = () => {
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  const windowWidthChangeHandelr = () => {
+    setWindowWidth(window.innerWidth);
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", windowWidthChangeHandelr);
+    return () => {
+      window.removeEventListener("resize", windowWidthChangeHandelr);
+    };
+  }, []);
   const iconSize = 27;
   return (
-    <section className="open" style={{ backgroundImage: `url(${bg})` }}>
+    <section
+      className="open"
+      style={{
+        backgroundImage: `url(${windowWidth >= 1024 ? bgDesktop : bgMobile})`,
+      }}
+    >
       <div className="open__container">
         <h1 className="open__title">A WONDERFUL DISH </h1>
         <div className="open__icons">
