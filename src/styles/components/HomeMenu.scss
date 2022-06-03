@@ -11,3 +11,21 @@
     margin: 0 auto;
   }
 }
+
+@include desktop {
+  .menu {
+    background-size: cover;
+    background-position: center;
+    &__container {
+      display: flex;
+      justify-content: flex-end;
+      max-width: 1024px;
+      margin: 0 auto;
+    }
+    img {
+      width: auto;
+      display: block;
+      margin: 0;
+    }
+  }
+}
