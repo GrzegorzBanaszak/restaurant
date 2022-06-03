@@ -4,12 +4,12 @@ import HomeMake from "./HomeMake";
 import HomeMenu from "./HomeMenu";
 import HomeOpen from "./HomeOpen";
 import HomeSteps from "./HomeSteps";
-import NavMobile from "./NavMobile";
+import Nav from "./Nav";
 
 const Home = () => {
   return (
     <>
-      <NavMobile />
+      <Nav />
       <HomeOpen />
       <HomeSteps />
       <HomeMenu />
