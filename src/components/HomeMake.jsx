@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../styles/components/HomeMake.scss";
+import bgPhone from "../assets/phone.png";
 const HomeMake = () => {
   return (
     <section className="make">
@@ -21,8 +22,13 @@ const HomeMake = () => {
             Sprawdz
           </Link>
         </div>
-        <div className="make__previev">
-          <div className="make__phone"></div>
+        <div className="make__preview">
+          <div
+            className="make__phone"
+            style={{ backgroundImage: `url(${bgPhone})` }}
+          >
+            <div className="make__phone--content">hello</div>
+          </div>
         </div>
       </div>
     </section>
