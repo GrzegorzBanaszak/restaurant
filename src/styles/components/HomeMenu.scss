@@ -1,0 +1,13 @@
+@import "../settings/mixins.scss";
+@import "../settings/colors.scss";
+
+.menu {
+  padding: 2rem 0;
+  background-position: center;
+  background-repeat: no-repeat;
+  img {
+    width: 80%;
+    display: block;
+    margin: 0 auto;
+  }
+}
