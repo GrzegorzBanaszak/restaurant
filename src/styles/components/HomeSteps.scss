@@ -4,8 +4,9 @@
   background-color: $steps-bg;
   color: white;
   &__container {
-    margin: 0 1rem;
+    margin: 0 auto;
     padding: 1rem 0;
+    max-width: 1024px;
   }
   &__title {
     text-align: center;
@@ -27,6 +28,25 @@
     p {
       margin-top: 0.7rem;
       text-align: center;
+    }
+  }
+}
+
+@include desktop {
+  .steps {
+    &__content {
+      flex-wrap: nowrap;
+    }
+    &__item {
+      margin-top: 1rem;
+      width: 25%;
+
+      p {
+        text-align: center;
+        width: 80%;
+        margin: 0.7rem auto;
+        font-size: toRem(18);
+      }
     }
   }
 }
