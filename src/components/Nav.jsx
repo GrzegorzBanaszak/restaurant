@@ -39,10 +39,10 @@ const Nav = () => {
         </div>
         <div className="nav__btns--desktop">
           <Link className="nav__btn" to="/login">
-            Login
+            Logowanie
           </Link>
           <Link className="nav__btn" to="/register">
-            Register
+            Rejestracja
           </Link>
         </div>
         <GiHamburgerMenu
@@ -64,10 +64,10 @@ const Nav = () => {
         ))}
         <div className="nav__btns--mobile">
           <Link className="nav__btn" to="/login">
-            Login
+            Logowanie
           </Link>
           <Link className="nav__btn" to="/register">
-            Register
+            Rejestracja
           </Link>
         </div>
       </motion.div>

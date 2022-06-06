@@ -44,7 +44,7 @@
   }
   &__btn {
     width: toRem(90);
-    height: toRem(27);
+    padding: 0.3rem;
     border-radius: 15px;
     background-color: $text-red-main;
     color: white;
