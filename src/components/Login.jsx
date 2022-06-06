@@ -8,7 +8,7 @@ const Login = () => {
     <Nav/>
       <section className="login">
           <div className="login__container">
-              <h2 className="login__title">Login</h2>
+              <h2 className="login__title">Logowanie</h2>
               <form className="login__form">
                   <FormField inputName="Email"/>
                   <FormField inputName="Hasło" inputType="password"/>

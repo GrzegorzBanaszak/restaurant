@@ -7,7 +7,9 @@
   background-color: $dark-bg;
   color: white;
   &__container {
-    padding-top: toRem(120);
+    padding-top: toRem(150);
+    max-width: 1024px;
+    margin: 0 auto;
   }
   &__title {
     font-size: toRem(40);
@@ -24,5 +26,15 @@
     @include makeBtn(300, 50, 25, 16);
     border: none;
     margin: 4rem auto;
+    font-weight: 700;
+    font-size: 1.2rem;
+  }
+}
+
+@include desktop {
+  .login {
+    &__form {
+      width: 60%;
+    }
   }
 }
