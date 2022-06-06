@@ -1,0 +1,20 @@
+@import "../settings/mixins.scss";
+@import "../settings/colors.scss";
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  label {
+    font-size: 1.6rem;
+  }
+  input {
+    color: white;
+    padding: 0.4rem;
+    font-size: 1.1rem;
+    margin-top: 1rem;
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid white;
+  }
+}
