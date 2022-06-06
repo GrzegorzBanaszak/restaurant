@@ -33,3 +33,26 @@
     width: 25px;
   }
 }
+
+@include desktop {
+  .contact {
+    &__container {
+      width: toRem(600);
+      height: toRem(600);
+      border-radius: 50%;
+    }
+    &__title {
+      margin-top: 5rem;
+      font-size: toRem(52);
+    }
+    &__element {
+      font-size: toRem(28);
+      gap: 1rem;
+    }
+    svg {
+      height: 40px;
+      width: 40px;
+      display: block;
+    }
+  }
+}

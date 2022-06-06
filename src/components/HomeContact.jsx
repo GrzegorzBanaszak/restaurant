@@ -17,7 +17,7 @@ const HomeContact = () => {
           <IconFacebook /> www.facebook.com/wonderful-dish
         </div>
         <div className="contact__element">
-          <IconInstagram /> www.instagram.com/wonderful-dish/
+          <IconInstagram /><p>www.instagram.com/wonderful-dish/</p> 
         </div>
         <div className="contact__element">
           <IconMail /> contact@wonderful.com
