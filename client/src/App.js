@@ -1,13 +1,15 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./components/Home";
-import Login from "./components/Login";
-import OurDishes from "./components/OurDishes";
-import Register from "./components/Register";
+import Nav from "./components/Nav";
+import Home from "./pages/Home";
+import Login from "./pages/Login";
+import OurDishes from "./pages/OurDishes";
+import Register from "./pages/Register";
 import "./styles/main.scss";
 
 function App() {
   return (
     <BrowserRouter>
+      <Nav />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />

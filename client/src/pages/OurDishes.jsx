@@ -1,8 +1,7 @@
 import React from "react";
-import Nav from "./Nav";
 import "../styles/components/OurDishes.scss";
 import { useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 const sidebarMenuList = [
   {
     id: 1,
@@ -19,7 +18,6 @@ const OurDishes = () => {
   const [showSidebar, setShowSidebar] = useState(false);
   return (
     <>
-      <Nav />
       <section className="dishes">
         <div className="dishes__container">
           <motion.div
