@@ -1,0 +1,21 @@
+@import "../settings/mixins.scss";
+@import "../settings/colors.scss";
+
+.dishes {
+  padding-top: toRem(94);
+  &__sidebar {
+    font-family: "Pacifico", cursive;
+    position: absolute;
+    top: toRem(94);
+    width: 100%;
+    background-color: $text-red-main;
+    color: white;
+    ul {
+      list-style: none;
+    }
+    li {
+      padding: 0.6rem 1rem;
+      font-size: toRem(36);
+    }
+  }
+}

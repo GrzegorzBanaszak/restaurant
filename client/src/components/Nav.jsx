@@ -13,11 +13,11 @@ const menuList = [
   },
   {
     name: "Nasze dania",
-    target: "/make-dish",
+    target: "/dishes",
   },
   {
     name: "Stwórz danie",
-    target: "/dishes",
+    target: "/make--dish",
   },
 ];
 
@@ -32,7 +32,7 @@ const Nav = () => {
         </div>
         <div className="nav__contant--desktop">
           {menuList.map(({ name, target }, index) => (
-            <Link key={index} className="nav__link" to={target}>
+            <Link key={index} className="nav__link"  to={target}>
               {name}
             </Link>
           ))}
@@ -58,7 +58,7 @@ const Nav = () => {
         className="nav__contant--mobile"
       >
         {menuList.map(({ name, target }, index) => (
-          <Link key={index} className="nav__link" to={target}>
+          <Link key={index} className="nav__link"  to={target}>
             {name}
           </Link>
         ))}
