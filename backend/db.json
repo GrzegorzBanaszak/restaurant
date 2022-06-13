@@ -1,0 +1,24 @@
+{
+  "dishes": [
+    {
+      "id": "b0e65904-cefd-4f2b-95a8-dad58d7e63cd",
+      "name": "Margherirta",
+      "type":"pizza",
+      "price": 25,
+      "ingredients": ["Sos pomidorowy", "Ser mozazarella"]
+    },{
+      "id": "c23e5451-347c-431c-acf9-d12ca156e2ce",
+      "name": "Fungi",
+      "type":"pizza",
+      "price": 26,
+      "ingredients": ["Sos pomidorowy", "Ser mozazarella","Pieczarki"]
+    },
+    {
+      "id": "f9d1049b-5383-4dca-b3b4-99e4e088d0fa",
+      "name": "Cotto",
+      "type":"pizza",
+      "price": 27,
+      "ingredients": ["Sos pomidorowy", "Ser mozazarella","Szynka"]
+    }
+  ]
+}

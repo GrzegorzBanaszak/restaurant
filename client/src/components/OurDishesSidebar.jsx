@@ -1,19 +1,6 @@
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-
-const sidebarMenuList = [
-  {
-    id: 1,
-    name: "Pizza",
-    value: "pizza",
-  },
-  {
-    id: 2,
-    name: "Burgery",
-    value: "burgery",
-  },
-];
+import sidebarMenuList from "../utilis/sidebarMenuList";
 
 const OurDishesSidebar = () => {
   const { showSidebar } = useSelector((state) => state.menu);
