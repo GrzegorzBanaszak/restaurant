@@ -5,6 +5,8 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { BiFoodMenu } from "react-icons/bi";
+import { useDispatch, useSelector } from "react-redux";
+import { toggleSidebar, toggleMenu } from "../features/menu/menuSlice";
 const menuList = [
   {
     name: "Strona główna",
@@ -16,11 +18,13 @@ const menuList = [
   },
   {
     name: "Stwórz danie",
-    target: "/make--dish",
+    target: "/make-dish",
   },
 ];
 
 const Nav = ({ isOpen, setIsOpen }) => {
+  const dispatch = useDispatch();
+  const { showMenu } = useSelector((state) => state.menu);
   return (
     <nav className="nav">
       <div className="nav__header">
@@ -44,11 +48,19 @@ const Nav = ({ isOpen, setIsOpen }) => {
           </Link>
         </div>
         <div className="nav__toggles">
-          <BiFoodMenu size={36} color="#b21807" className="nav__toggle" />
+          {window.location.pathname === "/dishes" && (
+            <BiFoodMenu
+              size={36}
+              color="#b21807"
+              className="nav__toggle"
+              onClick={() => dispatch(toggleSidebar())}
+            />
+          )}
+
           <GiHamburgerMenu
             size={36}
             color="#b21807"
-            onClick={() => setIsOpen((prev) => !prev)}
+            onClick={() => dispatch(toggleMenu())}
             className="nav__toggle"
           />
         </div>
@@ -56,10 +68,10 @@ const Nav = ({ isOpen, setIsOpen }) => {
       <motion.div
         initial={{ height: 0 }}
         animate={{
-          height: isOpen ? "250px" : 0,
+          height: showMenu ? "250px" : 0,
           transition: { delay: 0.1 },
         }}
-        onClick={() => setIsOpen(false)}
+        onClick={() => dispatch(toggleMenu())}
         className="nav__contant--mobile"
       >
         {menuList.map(({ name, target }, index) => (

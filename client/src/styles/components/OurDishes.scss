@@ -2,7 +2,10 @@
 @import "../settings/colors.scss";
 
 .dishes {
-  padding-top: toRem(94);
+  &__container {
+    padding-top: toRem(94);
+    min-height: 100vh;
+  }
   &__sidebar {
     font-family: "Pacifico", cursive;
     position: absolute;
@@ -10,12 +13,27 @@
     width: 100%;
     background-color: $text-red-main;
     color: white;
+    min-height: calc(100% - toRem(94));
     ul {
       list-style: none;
     }
     li {
       padding: 0.6rem 1rem;
       font-size: toRem(36);
+    }
+  }
+  &__content {
+  }
+}
+
+@include desktop {
+  .dishes {
+    &__container {
+      display: flex;
+    }
+    &__sidebar {
+      width: 25%;
+      position: static;
     }
   }
 }

@@ -1,4 +1,7 @@
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+
 const sidebarMenuList = [
   {
     id: 1,
@@ -12,7 +15,9 @@ const sidebarMenuList = [
   },
 ];
 
-const OurDishesSidebar = ({ showSidebar, setShowSidebar }) => {
+const OurDishesSidebar = () => {
+  const { showSidebar } = useSelector((state) => state.menu);
+
   return (
     <motion.div
       className="dishes__sidebar"
