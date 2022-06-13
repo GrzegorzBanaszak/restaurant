@@ -22,7 +22,7 @@ const menuList = [
   },
 ];
 
-const Nav = ({ isOpen, setIsOpen }) => {
+const Nav = () => {
   const dispatch = useDispatch();
   const { showMenu } = useSelector((state) => state.menu);
   return (
