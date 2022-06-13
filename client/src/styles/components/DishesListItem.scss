@@ -1,0 +1,72 @@
+@import "../settings/mixins.scss";
+@import "../settings/colors.scss";
+
+.dishes-item {
+  background-color: white;
+  width: 90%;
+  margin: 1rem auto;
+  padding: 1rem;
+  border-radius: 20px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  display: grid;
+  gap: 0.9rem 0;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "name name price price"
+    "ingredients ingredients ingredients ingredients"
+    "change change add add";
+  &__name {
+    grid-area: name;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  &__ingredients {
+    grid-area: ingredients;
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+    gap: 0.5rem;
+  }
+  &__price {
+    grid-area: price;
+    text-align: end;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  &__change {
+    grid-area: change;
+    display: flex;
+    padding: 0.5rem;
+    input[type="text"] {
+      border: none;
+      width: 3rem;
+      box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+      text-align: center;
+      font-size: 1.2rem;
+    }
+  }
+  &__add {
+    grid-area: add;
+    padding: 0.5rem 0;
+    display: flex;
+    justify-content: flex-end;
+    button {
+      background-color: $text-red-main;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      font-size: 1.2rem;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+  }
+  .button-add {
+    &--left {
+      @include buttonAdd("left");
+    }
+    &--right {
+      @include buttonAdd("right");
+    }
+  }
+}

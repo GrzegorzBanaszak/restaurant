@@ -1,3 +1,4 @@
+@import "./colors.scss";
 @function toRem($value) {
   $remValue: calc($value / 16) + rem;
   @return $remValue;
@@ -19,5 +20,18 @@
 @mixin desktop {
   @media (min-width: 1024px) {
     @content;
+  }
+}
+@mixin buttonAdd($type) {
+  background-color: $text-red-main;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+  @if ($type == "left") {
+    border-radius: 5px 0 0 5px;
+  } @else {
+    border-radius: 0 5px 5px 0;
   }
 }

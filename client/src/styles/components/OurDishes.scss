@@ -5,6 +5,7 @@
   &__container {
     padding-top: toRem(94);
     min-height: 100vh;
+    background-color: #eeeeee;
   }
   &__sidebar {
     font-family: "Pacifico", cursive;
@@ -22,7 +23,10 @@
       font-size: toRem(36);
     }
   }
-  &__content {
+  &__title {
+    margin-top: 1rem;
+    font-size: toRem(42);
+    text-align: center;
   }
 }
 
@@ -34,6 +38,9 @@
     &__sidebar {
       width: 25%;
       position: static;
+    }
+    &__content {
+      width: 75%;
     }
   }
 }
