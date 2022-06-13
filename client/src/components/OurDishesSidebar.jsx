@@ -2,9 +2,15 @@ import { motion } from "framer-motion";
 import { useSelector, useDispatch } from "react-redux";
 import sidebarMenuList from "../utilis/sidebarMenuList";
 import { setDishesType } from "../features/dishes/dishesSlice";
+import { toggleSidebar } from "../features/menu/menuSlice";
 const OurDishesSidebar = () => {
   const dispatch = useDispatch();
   const { showSidebar } = useSelector((state) => state.menu);
+
+  const handleClick = (value) => {
+    dispatch(setDishesType(value));
+    dispatch(toggleSidebar());
+  };
 
   return (
     <motion.div
@@ -19,7 +25,7 @@ const OurDishesSidebar = () => {
         {sidebarMenuList.map((item) => (
           <li
             onClick={() => {
-              dispatch(setDishesType(item.value));
+              handleClick(item.value);
             }}
             key={item.id}
           >

@@ -22,7 +22,7 @@ const OurDishes = () => {
               {isSuccess &&
                 dishes
                   .filter((dish) => dish.type === type)
-                  .map((dish) => <DishesListItem key={dish.id} dish={dish} />)}
+                  .map((dish) => <DishesListItem key={dish._id} dish={dish} />)}
             </div>
           </section>
         </div>
