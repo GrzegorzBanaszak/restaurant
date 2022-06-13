@@ -24,6 +24,7 @@
   &__ingredients {
     grid-area: ingredients;
     display: flex;
+    align-items: center;
     flex-wrap: wrap;
     list-style-type: none;
     gap: 0.5rem;
@@ -67,6 +68,25 @@
     }
     &--right {
       @include buttonAdd("right");
+    }
+  }
+}
+
+@include desktop {
+  .dishes-item {
+    width: 65%;
+    grid-template-areas:
+      "name name price price"
+      "ingredients ingredients change add";
+    &__name {
+      text-align: center;
+      font-size: 2rem;
+    }
+    &__price {
+      font-size: 2rem;
+    }
+    &__ingredients {
+      justify-content: center;
     }
   }
 }

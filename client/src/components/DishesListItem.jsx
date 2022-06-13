@@ -17,7 +17,7 @@ const DishesListItem = ({ dish }) => {
         <button className="button-add--right">+</button>
       </div>
       <div className="dishes-item__add">
-        <button>Add</button>
+        <button>Dodaj</button>
       </div>
     </div>
   );

@@ -53,6 +53,9 @@
       max-width: 1024px;
       margin: 0 auto;
     }
+    &__title {
+      font-size: 2rem;
+    }
     &__content {
       width: 50%;
       display: flex;

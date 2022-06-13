@@ -14,7 +14,7 @@
     width: 100%;
     background-color: $text-red-main;
     color: white;
-    min-height: calc(100% - toRem(94));
+    min-height: calc(100vh - toRem(94));
     ul {
       list-style: none;
     }
