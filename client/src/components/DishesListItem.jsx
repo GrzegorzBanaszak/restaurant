@@ -13,7 +13,7 @@ const DishesListItem = ({ dish }) => {
       <div className="dishes-item__price">Cena: {price} zł</div>
       <div className="dishes-item__change">
         <button className="button-add--left">-</button>
-        <input type="text" />
+        <input type="text" readOnly />
         <button className="button-add--right">+</button>
       </div>
       <div className="dishes-item__add">

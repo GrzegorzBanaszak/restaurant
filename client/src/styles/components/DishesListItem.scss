@@ -23,6 +23,7 @@
   }
   &__ingredients {
     grid-area: ingredients;
+
     display: flex;
     align-items: center;
     flex-wrap: wrap;
@@ -86,6 +87,11 @@
       font-size: 2rem;
     }
     &__ingredients {
+      justify-content: center;
+      border-top: 2px solid $text-red-main;
+      font-size: 1.1rem;
+    }
+    &__change {
       justify-content: center;
     }
   }

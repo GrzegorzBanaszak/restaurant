@@ -9,7 +9,7 @@
   }
   &__sidebar {
     font-family: "Pacifico", cursive;
-    position: absolute;
+    position: fixed;
     top: toRem(94);
     width: 100%;
     background-color: $text-red-main;
@@ -27,6 +27,10 @@
     margin-top: 1rem;
     font-size: toRem(42);
     text-align: center;
+    text-transform: uppercase;
+  }
+  &__content {
+    padding-bottom: 1rem;
   }
 }
 
@@ -34,6 +38,7 @@
   .dishes {
     &__container {
       display: flex;
+      height: 100vh;
     }
     &__sidebar {
       width: 25%;
@@ -41,6 +46,7 @@
     }
     &__content {
       width: 75%;
+      overflow-y: scroll;
     }
   }
 }
