@@ -40,7 +40,13 @@ export const authSlice = createSlice({
       .addCase(getUser.rejected, (state, action) => {
         state.isLoading = false;
         state.isError = true;
-        state.message = action.payload;
+        if (action.payload === "Token has expired") {
+          state.token = null;
+          localStorage.removeItem("token");
+          state.user = null;
+        } else {
+          state.message = action.payload;
+        }
       });
   },
 });
