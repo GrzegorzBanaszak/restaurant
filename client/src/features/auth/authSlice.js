@@ -23,10 +23,28 @@ export const getUser = createAsyncThunk("auth/get", async (token, thunkAPI) => {
   }
 });
 
+export const login = createAsyncThunk("auth/login", async (data, thunkAPI) => {
+  try {
+    return await authServices.login(data);
+  } catch (error) {
+    const message =
+      (error.respons && error.respons.data && error.respons.data.message) ||
+      error.message ||
+      error.toString();
+    return thunkAPI.rejectWithValue(message);
+  }
+});
+
 export const authSlice = createSlice({
   name: "auth",
   initialState,
-  reducers: {},
+  reducers: {
+    logout: (state) => {
+      state.user = null;
+      state.token = null;
+      localStorage.removeItem("token");
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(getUser.pending, (state, action) => {
@@ -47,8 +65,23 @@ export const authSlice = createSlice({
         } else {
           state.message = action.payload;
         }
+      })
+      .addCase(login.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(login.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.isSuccess = true;
+        state.user = { name: action.payload.name, email: action.payload.email };
+        state.token = action.payload.token;
+        localStorage.setItem("token", action.payload.token);
+      })
+      .addCase(login.rejected, (state, action) => {
+        state.isLoading = false;
+        state.isError = true;
+        state.message = action.payload;
       });
   },
 });
-
+export const { logout } = authSlice.actions;
 export default authSlice.reducer;

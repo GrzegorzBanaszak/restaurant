@@ -13,6 +13,10 @@ const getUser = async (token) => {
   return res.data;
 };
 
-const authServices = { getUser };
+const login = async (data) => {
+  const res = await axios.post(API_URL + "login", data);
+  return res.data;
+};
+const authServices = { getUser, login };
 
 export default authServices;

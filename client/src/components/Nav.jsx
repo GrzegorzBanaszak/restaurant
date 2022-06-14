@@ -4,9 +4,10 @@ import logo from "../assets/logored.png";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { BiFoodMenu } from "react-icons/bi";
+import { BiFoodMenu, BiUser } from "react-icons/bi";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleSidebar, toggleMenu } from "../features/menu/menuSlice";
+import { logout } from "../features/auth/authSlice";
 const menuList = [
   {
     name: "Strona główna",
@@ -25,6 +26,11 @@ const menuList = [
 const Nav = () => {
   const dispatch = useDispatch();
   const { showMenu } = useSelector((state) => state.menu);
+  const { user } = useSelector((state) => state.auth);
+
+  const onClickLogout = () => {
+    dispatch(logout());
+  };
   return (
     <nav className="nav">
       <div className="nav__header">
@@ -40,12 +46,25 @@ const Nav = () => {
           ))}
         </div>
         <div className="nav__btns--desktop">
-          <Link className="nav__btn" to="/login">
-            Logowanie
-          </Link>
-          <Link className="nav__btn" to="/register">
-            Rejestracja
-          </Link>
+          {user ? (
+            <>
+              <div className="nav__user">
+                <BiUser /> {user.name}
+              </div>
+              <button className="nav__btn" onClick={onClickLogout}>
+                Wyloguj
+              </button>
+            </>
+          ) : (
+            <>
+              <Link className="nav__btn" to="/login">
+                Logowanie
+              </Link>
+              <Link className="nav__btn" to="/register">
+                Rejestracja
+              </Link>
+            </>
+          )}
         </div>
         <div className="nav__toggles">
           {window.location.pathname === "/dishes" && (
@@ -80,12 +99,25 @@ const Nav = () => {
           </Link>
         ))}
         <div className="nav__btns--mobile">
-          <Link className="nav__btn" to="/login">
-            Logowanie
-          </Link>
-          <Link className="nav__btn" to="/register">
-            Rejestracja
-          </Link>
+          {user ? (
+            <>
+              <div className="nav__user">
+                <BiUser /> {user.name}
+              </div>
+              <button className="nav__btn" onClick={onClickLogout}>
+                Wyloguj
+              </button>
+            </>
+          ) : (
+            <>
+              <Link className="nav__btn" to="/login">
+                Logowanie
+              </Link>
+              <Link className="nav__btn" to="/register">
+                Rejestracja
+              </Link>
+            </>
+          )}
         </div>
       </motion.div>
     </nav>

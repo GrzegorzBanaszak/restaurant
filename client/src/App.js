@@ -5,7 +5,6 @@ import Login from "./pages/Login";
 import OurDishes from "./pages/OurDishes";
 import Register from "./pages/Register";
 import "./styles/main.scss";
-
 function App() {
   return (
     <BrowserRouter>
