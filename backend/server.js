@@ -13,6 +13,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 app.use("/api/dishes/", require("./routes/dishRoutes"));
+app.use("/api/auth/", require("./routes/userRoutes"));
 app.use(errorHandeler);
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`.green.bold);
