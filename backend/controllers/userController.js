@@ -8,14 +8,14 @@ const register = asyncHandler(async (req, res) => {
 
   if (!email || !password) {
     res.status(400);
-    throw new Error("Please enter all fields");
+    throw new Error("Uzupełnij wszystkie pola");
   }
 
   const userExist = await User.findOne({ email });
 
   if (userExist) {
     res.status(400);
-    throw new Error("User already exists");
+    throw new Error("Użytkownik o podanym adresie email juz istnieje");
   }
 
   //hash password
@@ -42,6 +42,11 @@ const register = asyncHandler(async (req, res) => {
 const login = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
 
+  if (!email || !password) {
+    res.status(400);
+    throw new Error("Uzupełnij wszystkie pola");
+  }
+
   const user = await User.findOne({ email });
 
   if (user && (await bcrypt.compare(password, user.password))) {
@@ -52,7 +57,7 @@ const login = asyncHandler(async (req, res) => {
     });
   } else {
     res.status(400);
-    throw new Error("Invalid credentials");
+    throw new Error("Nieprawidłowy email lub hasło");
   }
 });
 
