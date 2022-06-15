@@ -21,6 +21,12 @@
     width: 90%;
     margin: 0 auto;
   }
+  &__error {
+    font-size: toRem(20);
+    font-weight: bold;
+    text-align: center;
+    color: $text-error;
+  }
   button {
     margin-top: 4rem;
     @include makeBtn(300, 50, 25, 16);
@@ -37,4 +43,11 @@
       width: 60%;
     }
   }
+}
+.spiner__container {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background-color: $dark-bg;
 }

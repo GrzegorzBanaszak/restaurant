@@ -17,6 +17,12 @@
     text-align: center;
     margin-bottom: toRem(20);
   }
+  &__error {
+    font-size: toRem(20);
+    font-weight: bold;
+    text-align: center;
+    color: $text-error;
+  }
   &__form {
     width: 90%;
     margin: 0 auto;
@@ -37,4 +43,12 @@
       width: 60%;
     }
   }
+}
+
+.spiner__container {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background-color: $dark-bg;
 }

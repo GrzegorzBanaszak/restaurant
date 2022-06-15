@@ -17,6 +17,12 @@ const login = async (data) => {
   const res = await axios.post(API_URL + "login", data);
   return res.data;
 };
-const authServices = { getUser, login };
+
+const register = async (data) => {
+  const res = await axios.post(API_URL, data);
+
+  return res.data;
+};
+const authServices = { getUser, login, register };
 
 export default authServices;

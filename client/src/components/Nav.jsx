@@ -102,7 +102,7 @@ const Nav = () => {
           {user ? (
             <>
               <div className="nav__user">
-                <BiUser /> {user.name}
+                <BiUser />
               </div>
               <button className="nav__btn" onClick={onClickLogout}>
                 Wyloguj

@@ -4,22 +4,31 @@ import FormField from "../components/FormField";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { login } from "../features/auth/authSlice";
+import { login, reset } from "../features/auth/authSlice";
+import Spinner from "../components/Spinner";
 const defData = {
   email: "",
   password: "",
 };
 const Login = () => {
   const [formData, setFormData] = useState(defData);
+  const [error, setError] = useState("");
   const dispath = useDispatch();
-  const { user, isLoading } = useSelector((state) => state.auth);
+  const { user, isError, isSuccess, isLoading, message } = useSelector(
+    (state) => state.auth
+  );
   const nav = useNavigate();
 
   useEffect(() => {
-    if (user) {
+    if (isError) {
+      setError(message);
+      dispath(reset());
+    }
+    if (isSuccess || user) {
+      dispath(reset());
       nav("/");
     }
-  }, [user, isLoading]);
+  }, [user, nav, isError, isSuccess, message, setError, dispath]);
 
   const inputChangeHandler = (e) => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -28,6 +37,14 @@ const Login = () => {
     e.preventDefault();
     dispath(login(formData));
   };
+
+  if (isLoading) {
+    return (
+      <div className="spiner__container">
+        <Spinner color="white" />
+      </div>
+    );
+  }
   return (
     <>
       <section className="login">
@@ -47,6 +64,7 @@ const Login = () => {
               value={formData.password}
               changeHandler={inputChangeHandler}
             />
+            {error && <p className="login__error">{error}</p>}
             <button type="submit">Zaloguj</button>
           </form>
         </div>

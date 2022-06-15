@@ -4,9 +4,9 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 
 const register = asyncHandler(async (req, res) => {
-  const { name, email, password } = req.body;
+  const { email, password } = req.body;
 
-  if (!name || !email || !password) {
+  if (!email || !password) {
     res.status(400);
     throw new Error("Please enter all fields");
   }
@@ -23,7 +23,6 @@ const register = asyncHandler(async (req, res) => {
   const hashedPassword = await bcrypt.hash(password, salt);
 
   const user = await User.create({
-    name,
     email,
     password: hashedPassword,
   });
@@ -31,7 +30,6 @@ const register = asyncHandler(async (req, res) => {
   if (user) {
     res.status(201).json({
       _id: user._id,
-      name: user.name,
       email: user.email,
       token: generateToken(user._id),
     });
@@ -49,7 +47,6 @@ const login = asyncHandler(async (req, res) => {
   if (user && (await bcrypt.compare(password, user.password))) {
     res.status(200).json({
       _id: user._id,
-      name: user.name,
       email: user.email,
       token: generateToken(user._id),
     });
