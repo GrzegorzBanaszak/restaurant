@@ -14,9 +14,7 @@ export const getDishes = createAsyncThunk("dishes/get", async (_, thunkAPI) => {
     return await dishesServices.getDishes();
   } catch (error) {
     const message =
-      (error.respons && error.respons.data && error.respons.data.message) ||
-      error.message ||
-      error.toString();
+      error.response.data.message || error.message || error.toString();
     return thunkAPI.rejectWithValue(message);
   }
 });

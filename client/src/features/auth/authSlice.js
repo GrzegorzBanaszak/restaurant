@@ -16,9 +16,7 @@ export const getUser = createAsyncThunk("auth/get", async (token, thunkAPI) => {
     return await authServices.getUser(token);
   } catch (error) {
     const message =
-      (error.respons && error.respons.data && error.respons.data.message) ||
-      error.message ||
-      error.toString();
+      error.response.data.message || error.message || error.toString();
     return thunkAPI.rejectWithValue(message);
   }
 });
@@ -27,10 +25,9 @@ export const login = createAsyncThunk("auth/login", async (data, thunkAPI) => {
   try {
     return await authServices.login(data);
   } catch (error) {
+    console.log(error.response.data.message);
     const message =
-      (error.respons && error.respons.data && error.respons.data.message) ||
-      error.message ||
-      error.toString();
+      error.response.data.message || error.message || error.toString();
     return thunkAPI.rejectWithValue(message);
   }
 });
@@ -42,9 +39,7 @@ export const register = createAsyncThunk(
       return await authServices.register(data);
     } catch (error) {
       const message =
-        (error.respons && error.respons.data && error.respons.data.message) ||
-        error.message ||
-        error.toString();
+        error.response.data.message || error.message || error.toString();
       return thunkAPI.rejectWithValue(message);
     }
   }
@@ -55,8 +50,7 @@ export const authSlice = createSlice({
   initialState,
   reducers: {
     logout: (state) => {
-      state.user = null;
-      state.token = null;
+      state = initialState;
       localStorage.removeItem("token");
     },
     reset: (state) => {
@@ -101,6 +95,7 @@ export const authSlice = createSlice({
         state.isLoading = false;
         state.isError = true;
         state.message = action.payload;
+        console.log(action.payload);
       })
       .addCase(register.pending, (state) => {
         state.isLoading = true;
