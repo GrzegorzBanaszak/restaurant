@@ -1,10 +1,16 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import "../styles/components/DishesListItem.scss";
+import { addToCart } from "../features/cart/cartSlice";
 const DishesListItem = ({ dish }) => {
   const { user } = useSelector((state) => state.auth);
-
-  const { name, price, ingredients } = dish;
+  const { cart } = useSelector((state) => state.cart);
+  const { _id, name, price, ingredients } = dish;
+  const cartDish = cart.find((item) => item.id === _id);
+  const dispatch = useDispatch();
+  const handleChangeQuantityInCart = (type) => {
+    dispatch(addToCart({ id: _id, name, price, type }));
+  };
   return (
     <div className="dishes-item">
       <h4 className="dishes-item__name">{name}</h4>
@@ -17,12 +23,23 @@ const DishesListItem = ({ dish }) => {
       {user && (
         <>
           <div className="dishes-item__change">
-            <button className="button-add--left">-</button>
-            <input type="text" readOnly />
-            <button className="button-add--right">+</button>
-          </div>
-          <div className="dishes-item__add">
-            <button>Dodaj</button>
+            <button
+              className="button-add--left"
+              onClick={() => handleChangeQuantityInCart("MINUS")}
+            >
+              -
+            </button>
+            <input
+              type="text"
+              readOnly
+              value={cartDish ? cartDish.quantity : 0}
+            />
+            <button
+              className="button-add--right"
+              onClick={() => handleChangeQuantityInCart("PLUS")}
+            >
+              +
+            </button>
           </div>
         </>
       )}

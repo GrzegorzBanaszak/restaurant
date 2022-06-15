@@ -8,6 +8,7 @@ import { BiFoodMenu, BiUser } from "react-icons/bi";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleSidebar, toggleMenu } from "../features/menu/menuSlice";
 import { logout } from "../features/auth/authSlice";
+import { FiShoppingCart } from "react-icons/fi";
 const menuList = [
   {
     name: "Strona główna",
@@ -27,6 +28,7 @@ const Nav = () => {
   const dispatch = useDispatch();
   const { showMenu } = useSelector((state) => state.menu);
   const { user } = useSelector((state) => state.auth);
+  const { cart } = useSelector((state) => state.cart);
 
   const onClickLogout = () => {
     dispatch(logout());
@@ -50,6 +52,10 @@ const Nav = () => {
             <>
               <div className="nav__user">
                 <BiUser /> {user.name}
+              </div>
+              <div className="nav__cart">
+                <FiShoppingCart />
+                {cart.length > 0 && <p>{cart.length}</p>}
               </div>
               <button className="nav__btn" onClick={onClickLogout}>
                 Wyloguj

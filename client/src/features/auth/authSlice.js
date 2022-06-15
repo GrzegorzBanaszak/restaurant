@@ -50,8 +50,10 @@ export const authSlice = createSlice({
   initialState,
   reducers: {
     logout: (state) => {
-      state = initialState;
+      state.user = null;
+      state.token = null;
       localStorage.removeItem("token");
+      localStorage.removeItem("cart");
     },
     reset: (state) => {
       state.isError = false;

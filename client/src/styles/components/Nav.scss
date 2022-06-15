@@ -45,11 +45,35 @@
   }
   &__user {
     font-size: 1.4rem;
+
     display: flex;
     align-items: center;
     border: 1px solid black;
     padding: 0.3rem 0.7rem;
     border-radius: 20px;
+  }
+  &__cart {
+    position: relative;
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+    border: 1px solid black;
+    padding: 0.3rem 0.7rem;
+    border-radius: 20px;
+    p {
+      position: absolute;
+      bottom: -5px;
+      right: -5px;
+      font-size: 0.8rem;
+      width: 1.4rem;
+      height: 1.4rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: $text-red-main;
+      color: white;
+      border-radius: 50%;
+    }
   }
   &__btn {
     width: toRem(90);
