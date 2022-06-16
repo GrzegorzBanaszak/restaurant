@@ -2,14 +2,16 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import "../styles/components/DishesListItem.scss";
 import { addToCart } from "../features/cart/cartSlice";
+import { BsTrash } from "react-icons/bs";
 const DishesListItem = ({ dish }) => {
   const { user } = useSelector((state) => state.auth);
   const { cart } = useSelector((state) => state.cart);
   const { _id, name, price, ingredients } = dish;
-  const cartDish = cart.find((item) => item.id === _id);
+
+  const cartDish = cart.find((item) => item._id === _id);
   const dispatch = useDispatch();
   const handleChangeQuantityInCart = (type) => {
-    dispatch(addToCart({ id: _id, name, price, type }));
+    dispatch(addToCart({ _id, name, price, type, ingredients }));
   };
   return (
     <div className="dishes-item">
@@ -41,6 +43,13 @@ const DishesListItem = ({ dish }) => {
               +
             </button>
           </div>
+          {window.location.pathname === "/cart" && (
+            <div className="dishes-item__add">
+              <button>
+                <BsTrash size={15} /> Usuń
+              </button>
+            </div>
+          )}
         </>
       )}
     </div>

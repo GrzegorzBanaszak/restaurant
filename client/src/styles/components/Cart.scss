@@ -1,0 +1,13 @@
+@import "../settings/mixins.scss";
+@import "../settings/colors.scss";
+
+.cart {
+  background-color: #eeeeee;
+
+  &__container {
+    padding-top: toRem(94);
+    min-height: 100vh;
+    max-width: 1024px;
+    margin: 0 auto;
+  }
+}

@@ -2,7 +2,7 @@ import React from "react";
 import "../styles/components/Nav.scss";
 import logo from "../assets/logored.png";
 import { GiHamburgerMenu } from "react-icons/gi";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { BiFoodMenu, BiUser } from "react-icons/bi";
 import { useDispatch, useSelector } from "react-redux";
@@ -29,7 +29,7 @@ const Nav = () => {
   const { showMenu } = useSelector((state) => state.menu);
   const { user } = useSelector((state) => state.auth);
   const { cart } = useSelector((state) => state.cart);
-
+  const nav = useNavigate();
   const onClickLogout = () => {
     dispatch(logout());
   };
@@ -53,7 +53,7 @@ const Nav = () => {
               <div className="nav__user">
                 <BiUser /> {user.name}
               </div>
-              <div className="nav__cart">
+              <div className="nav__cart" onClick={() => nav("/cart")}>
                 <FiShoppingCart />
                 {cart.length > 0 && <p>{cart.length}</p>}
               </div>
