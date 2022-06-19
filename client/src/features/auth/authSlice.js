@@ -52,6 +52,10 @@ export const authSlice = createSlice({
     logout: (state) => {
       state.user = null;
       state.token = null;
+      state.isError = false;
+      state.isSuccess = false;
+      state.isLoading = false;
+      state.message = "";
       localStorage.removeItem("token");
       localStorage.removeItem("cart");
     },

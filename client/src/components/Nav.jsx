@@ -50,9 +50,6 @@ const Nav = () => {
         <div className="nav__btns--desktop">
           {user ? (
             <>
-              <div className="nav__user">
-                <BiUser /> {user.name}
-              </div>
               <div className="nav__cart" onClick={() => nav("/cart")}>
                 <FiShoppingCart />
                 {cart.length > 0 && <p>{cart.length}</p>}
@@ -107,8 +104,9 @@ const Nav = () => {
         <div className="nav__btns--mobile">
           {user ? (
             <>
-              <div className="nav__user">
-                <BiUser />
+              <div className="nav__cart" onClick={() => nav("/cart")}>
+                <FiShoppingCart />
+                {cart.length > 0 && <p>{cart.length}</p>}
               </div>
               <button className="nav__btn" onClick={onClickLogout}>
                 Wyloguj
