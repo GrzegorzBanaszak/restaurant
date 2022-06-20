@@ -1,0 +1,52 @@
+@import "../settings/mixins.scss";
+@import "../settings/colors.scss";
+
+.makePizza {
+  padding-top: 2rem;
+  &__title {
+    text-align: center;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+    padding-bottom: 0.7rem;
+  }
+  &__type {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    &--btn {
+      flex-grow: 1;
+      font-size: 1.2rem;
+      font-weight: 600;
+      text-align: center;
+      margin: 1rem 0;
+      border: 1px solid #ccc;
+      padding: 1rem 0;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+    }
+    &--active {
+      background-color: #c2185b;
+      color: white;
+    }
+  }
+  &__list {
+    display: flex;
+    list-style-type: none;
+    flex-wrap: wrap;
+    li {
+      margin: 0.5rem;
+      padding: 0.7rem;
+      border: 1px solid #ccc;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+    .selected {
+      color: white;
+      background-color: #2e7d32;
+    }
+  }
+}

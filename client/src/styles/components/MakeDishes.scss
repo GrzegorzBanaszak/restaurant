@@ -1,0 +1,42 @@
+@import "../settings/mixins.scss";
+@import "../settings/colors.scss";
+
+.makeDishes {
+  padding-top: toRem(94);
+  &__container {
+    margin: 0 1rem;
+    max-width: 1024px;
+  }
+  &__header {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    button {
+      flex-grow: 1;
+      padding: 1rem;
+      border-radius: 20px;
+      border: none;
+      color: white;
+      font-size: 1.3rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    button:nth-of-type(1) {
+      background-color: #e1d800;
+    }
+    button:nth-of-type(2) {
+      background-color: #c96619;
+    }
+    button:nth-of-type(3) {
+      background-color: #b78b43;
+    }
+  }
+}
+
+@include desktop {
+  .makeDishes {
+    &__container {
+      margin: 0 auto;
+    }
+  }
+}
