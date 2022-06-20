@@ -1,7 +1,6 @@
-export const cakeTypeList = ["cienkie", "grube", "serowymi brzegam"];
+export const cakeTypeList = ["cienkie", "grube", "serowym brzegam"];
 export const typeList = ["własna", "składana"];
 export const defPizza = {
-  type: "własna",
   cake: "cienkie",
   ingredients: [],
 };

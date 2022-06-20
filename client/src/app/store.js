@@ -3,11 +3,13 @@ import menuReducer from "../features/menu/menuSlice";
 import dishesReducer from "../features/dishes/dishesSlice";
 import authReducer from "../features/auth/authSlice";
 import cartReducer from "../features/cart/cartSlice";
+import makeReducer from "../features/make/makeSlice";
 export const store = configureStore({
   reducer: {
     menu: menuReducer,
     dishes: dishesReducer,
     auth: authReducer,
     cart: cartReducer,
+    make: makeReducer,
   },
 });
