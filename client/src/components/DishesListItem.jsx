@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import "../styles/components/DishesListItem.scss";
-import { addToCart } from "../features/cart/cartSlice";
+import { addToCart, deleteDish } from "../features/cart/cartSlice";
 import { BsTrash } from "react-icons/bs";
 const DishesListItem = ({ dish }) => {
   const { user } = useSelector((state) => state.auth);
@@ -45,7 +45,7 @@ const DishesListItem = ({ dish }) => {
           </div>
           {window.location.pathname === "/cart" && (
             <div className="dishes-item__add">
-              <button>
+              <button onClick={() => dispatch(deleteDish(_id))}>
                 <BsTrash size={15} /> Usuń
               </button>
             </div>
