@@ -3,7 +3,7 @@ import { defPizza } from "../../utilis/makePizzaData";
 
 const initialState = {
   pizza: defPizza,
-  foldable: [],
+  pizzaFoldable: [],
 };
 
 export const makeSlice = createSlice({
@@ -29,8 +29,53 @@ export const makeSlice = createSlice({
     reset: (state) => {
       state.pizza = defPizza;
     },
+    addPizzaFoldable: (state, action) => {
+      const quantity = state.pizzaFoldable.reduce((curr, next) => {
+        return curr + next.quantity;
+      }, 0);
+      if (quantity < 8) {
+        const { _id, name, price, ingredients } = action.payload;
+        const newPrice = (price / 8).toFixed(2);
+        state.pizzaFoldable.push({
+          _id,
+          name,
+          price: newPrice,
+          ingredients,
+          quantity: 1,
+        });
+      }
+    },
+    removePizzaFoldable: (state, action) => {
+      const pizza = state.pizzaFoldable.find((p) => p._id === action.payload);
+      state.pizzaFoldable.splice(state.pizzaFoldable.indexOf(pizza), 1);
+    },
+    addPizzaFoldableQuantity: (state, action) => {
+      const quantity = state.pizzaFoldable.reduce((curr, next) => {
+        return curr + next.quantity;
+      }, 0);
+      if (quantity < 8) {
+        const pizza = state.pizzaFoldable.find((p) => p._id === action.payload);
+        pizza.quantity += 1;
+      }
+    },
+    decrementPizzaFoldableQuantity: (state, action) => {
+      const pizza = state.pizzaFoldable.find((p) => p._id === action.payload);
+      if (pizza.quantity > 1) {
+        pizza.quantity -= 1;
+      } else {
+        state.pizzaFoldable.splice(state.pizzaFoldable.indexOf(pizza), 1);
+      }
+    },
   },
 });
 
-export const { setIngredient, setCakeType, reset } = makeSlice.actions;
+export const {
+  setIngredient,
+  setCakeType,
+  reset,
+  addPizzaFoldable,
+  removePizzaFoldable,
+  addPizzaFoldableQuantity,
+  decrementPizzaFoldableQuantity,
+} = makeSlice.actions;
 export default makeSlice.reducer;

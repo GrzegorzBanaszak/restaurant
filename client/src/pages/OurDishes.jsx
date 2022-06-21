@@ -2,15 +2,10 @@ import React from "react";
 import "../styles/components/OurDishes.scss";
 import OurDishesSidebar from "../components/OurDishesSidebar";
 import DishesListItem from "../components/DishesListItem";
-import { getDishes } from "../features/dishes/dishesSlice";
-import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
+import { useSelector } from "react-redux";
+
 const OurDishes = () => {
-  const dispatch = useDispatch();
-  const { dishes, type, isSuccess } = useSelector((state) => state.dishes);
-  useEffect(() => {
-    dispatch(getDishes());
-  }, []);
+  const { dishes, type } = useSelector((state) => state.dishes);
   return (
     <>
       <section className="dishes">
@@ -19,10 +14,11 @@ const OurDishes = () => {
           <section className="dishes__content">
             <h2 className="dishes__title">- {type} -</h2>
             <div className="dishes__list">
-              {isSuccess &&
-                dishes
-                  .filter((dish) => dish.type === type)
-                  .map((dish) => <DishesListItem key={dish._id} dish={dish} />)}
+              {dishes
+                .filter((dish) => dish.type === type)
+                .map((dish) => (
+                  <DishesListItem key={dish._id} dish={dish} />
+                ))}
             </div>
           </section>
         </div>
