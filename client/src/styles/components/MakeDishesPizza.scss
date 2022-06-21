@@ -27,6 +27,7 @@
       align-items: center;
       justify-content: center;
       gap: 1rem;
+      user-select: none;
     }
     &--active {
       background-color: #c2185b;
@@ -47,6 +48,7 @@
       border: 1px solid #ccc;
       font-size: 1.5rem;
       cursor: pointer;
+      user-select: none;
     }
     .selected {
       color: white;
@@ -57,12 +59,26 @@
     display: flex;
     gap: 1rem;
     margin-top: 1rem;
+    flex-wrap: wrap;
     .cake,
-    .price {
-      width: 25%;
-    }
+    .price,
     .ingredients {
-      width: 50%;
+      width: 100%;
+    }
+    &--btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      width: 100%;
+      padding: 0.7rem;
+      border: none;
+      color: white;
+      background-color: $text-red-main;
+      border-radius: 15px;
+      font-size: 1.2rem;
+      font-weight: 600;
+      cursor: pointer;
     }
   }
 
@@ -89,6 +105,20 @@
       font-weight: 600;
       text-align: center;
       margin: 1rem 0;
+    }
+  }
+}
+@include desktop {
+  .makePizza {
+    &__summary {
+      flex-wrap: nowrap;
+      .cake,
+      .price {
+        width: 25%;
+      }
+      .ingredients {
+        width: 50%;
+      }
     }
   }
 }

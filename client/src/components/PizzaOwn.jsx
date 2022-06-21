@@ -3,7 +3,10 @@ import "../styles/components/MakeDishesPizza.scss";
 import { useSelector, useDispatch } from "react-redux";
 import { AiFillCheckCircle } from "react-icons/ai";
 import { cakeTypeList, ingredientsList } from "../utilis/makePizzaData";
-import { setIngredient, setCakeType } from "../features/make/makeSlice";
+import { setIngredient, setCakeType, reset } from "../features/make/makeSlice";
+import { addToCart } from "../features/cart/cartSlice";
+import { v4 as uuidv4 } from "uuid";
+import { FiShoppingCart } from "react-icons/fi";
 const PizzaOwn = () => {
   const { pizza } = useSelector((state) => state.make);
   const dispatch = useDispatch();
@@ -15,6 +18,19 @@ const PizzaOwn = () => {
   const handleChangeIngredients = (value) => {
     dispatch(setIngredient(value));
   };
+
+  const addPizza = () => {
+    dispatch(
+      addToCart({
+        _id: uuidv4(),
+        type: "PLUS",
+        name: "Pizza ciasto" + pizza.cake,
+        price: pizza.price,
+        ingredients: pizza.ingredients,
+      })
+    );
+    dispatch(reset());
+  };
   return (
     <>
       <h3 className="makePizza__title">Rodzaj ciasta</h3>
@@ -24,13 +40,13 @@ const PizzaOwn = () => {
             key={index}
             onClick={() => handleChange(type)}
             className={`makePizza__type--btn ${
-              pizza.cake === type && "makePizza__type--active"
+              pizza.cake === type.name && "makePizza__type--active"
             }`}
           >
-            {pizza.cake === type && (
+            {pizza.cake === type.name && (
               <AiFillCheckCircle color="white" fontSize={30} />
             )}
-            Ciasto {type}
+            Ciasto {type.name} <b>{type.price}zł</b>
           </div>
         ))}
       </div>
@@ -40,11 +56,11 @@ const PizzaOwn = () => {
           <li
             onClick={() => handleChangeIngredients(ingredient)}
             className={`${
-              pizza.ingredients.includes(ingredient) ? "selected" : ""
+              pizza.ingredients.includes(ingredient.name) ? "selected" : ""
             }`}
             key={index}
           >
-            {ingredient}
+            {ingredient.name} <b>{ingredient.price}zł</b>
           </li>
         ))}
       </ul>
@@ -63,7 +79,10 @@ const PizzaOwn = () => {
           </ul>
         </div>
         <div className="makePizza__col price">
-          <h4>Cena: </h4>
+          <h4>Cena: {pizza.price} zł</h4>
+          <button onClick={addPizza} className="makePizza__summary--btn">
+            <FiShoppingCart /> Dodaj
+          </button>
         </div>
       </div>
     </>

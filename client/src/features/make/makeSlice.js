@@ -10,20 +10,26 @@ export const makeSlice = createSlice({
   initialState,
   reducers: {
     setIngredient: (state, action) => {
-      if (state.pizza.ingredients.includes(action.payload)) {
+      if (state.pizza.ingredients.includes(action.payload.name)) {
         state.pizza.ingredients.splice(
-          state.pizza.ingredients.indexOf(action.payload),
+          state.pizza.ingredients.indexOf(action.payload.name),
           1
         );
+        state.pizza.price -= action.payload.price;
       } else {
-        state.pizza.ingredients.push(action.payload);
+        state.pizza.ingredients.push(action.payload.name);
+        state.pizza.price += action.payload.price;
       }
     },
     setCakeType: (state, action) => {
-      state.pizza.cake = action.payload;
+      state.pizza.cake = action.payload.name;
+      state.pizza.price = action.payload.price;
+    },
+    reset: (state) => {
+      state.pizza = defPizza;
     },
   },
 });
 
-export const { setIngredient, setCakeType } = makeSlice.actions;
+export const { setIngredient, setCakeType, reset } = makeSlice.actions;
 export default makeSlice.reducer;
