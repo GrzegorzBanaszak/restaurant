@@ -55,6 +55,47 @@
       background-color: #2e7d32;
     }
   }
+  &__pizza {
+    margin: 0.7rem 0;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 2rem 0;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+      rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    &--name {
+      font-size: 1.7rem;
+    }
+    &--active {
+      background-color: #2e7d32;
+      color: white;
+    }
+  }
+
+  &__control {
+    display: flex;
+    &--plus,
+    &--minus {
+      padding: 0 1rem;
+      color: #2e7d32;
+      font-weight: 600;
+      font-size: 1.1rem;
+      background-color: white;
+      border: none;
+    }
+    &--plus {
+      border-radius: 0 10px 10px 0;
+    }
+    &--minus {
+      border-radius: 10px 0 0 10px;
+    }
+    &--quantity {
+      text-align: center;
+      padding: 0.3rem 1.5rem;
+      background-color: white;
+      color: black;
+    }
+  }
   &__summary {
     display: flex;
     gap: 1rem;

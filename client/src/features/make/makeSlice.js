@@ -3,6 +3,7 @@ import { defPizza } from "../../utilis/makePizzaData";
 
 const initialState = {
   pizza: defPizza,
+  foldable: [],
 };
 
 export const makeSlice = createSlice({
