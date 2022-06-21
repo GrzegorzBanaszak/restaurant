@@ -1,7 +1,5 @@
 # Fullstack Restaurant Application
 
----
-
 **This is a restaurant website when you can order dishes and create your custom dish.**
 
 ## The site has a homepage, dishes menu and create your own dish.
