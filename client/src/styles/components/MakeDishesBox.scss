@@ -1,0 +1,129 @@
+@import "../settings/mixins.scss";
+@import "../settings/colors.scss";
+
+.makeBox {
+  padding: 3rem 0;
+  &__title {
+    text-align: center;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+    padding-bottom: 0.7rem;
+  }
+  &__type {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    &--btn {
+      flex-grow: 1;
+      font-size: 1.2rem;
+      font-weight: 600;
+      text-align: center;
+      margin: 1rem 0;
+      border: 1px solid #ccc;
+      padding: 1rem 0;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      user-select: none;
+    }
+    &--active {
+      background-color: #c2185b;
+      color: white;
+    }
+  }
+  &__item {
+    margin: 0.7rem 0;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 2rem 0.5rem;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+      rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+
+    &--name {
+      font-size: 1.7rem;
+      width: 100%;
+      text-align: center;
+    }
+    &--description {
+      width: 100%;
+      text-align: center;
+    }
+
+    &--active {
+      background-color: #2e7d32;
+      color: white;
+    }
+    &--price {
+      width: 100%;
+      text-align: center;
+    }
+    &--icon {
+      width: 20%;
+      display: flex;
+      justify-content: center;
+      svg {
+        cursor: pointer;
+      }
+    }
+  }
+  &__control {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    &--plus,
+    &--minus {
+      padding: 0.5rem 1rem;
+      color: #2e7d32;
+      font-weight: 600;
+      font-size: 1.1rem;
+      background-color: white;
+      border: none;
+      cursor: pointer;
+    }
+    &--plus {
+      border-radius: 0 10px 10px 0;
+    }
+    &--minus {
+      border-radius: 10px 0 0 10px;
+    }
+    &--quantity {
+      text-align: center;
+      padding: 0.3rem 1.5rem;
+      background-color: white;
+      color: black;
+    }
+  }
+}
+
+@include desktop {
+  .makeBox {
+    &__item {
+      flex-wrap: nowrap;
+      &--name {
+        width: 30%;
+      }
+      &--description {
+        width: 30%;
+      }
+      &--ingredients {
+        width: 20%;
+        display: block;
+      }
+      &--price {
+        width: 10%;
+      }
+      &--icon {
+        width: 10%;
+      }
+    }
+    &__control {
+      width: auto;
+      justify-content: none;
+    }
+  }
+}

@@ -5,6 +5,8 @@ import { GiChickenLeg, GiSandwich } from "react-icons/gi";
 import { useNavigate } from "react-router-dom";
 import MakeDishesPizza from "../components/MakeDishesPizza";
 import { useSelector } from "react-redux";
+import MakeDishesSandwich from "../components/MakeDishesSandwich";
+import MakeDishesBox from "../components/MakeDishesBox";
 const MakeDishes = () => {
   const nav = useNavigate();
   const { user } = useSelector((state) => state.auth);
@@ -18,6 +20,12 @@ const MakeDishes = () => {
   const renderBeSelect = () => {
     if (makeSelect === "pizza") {
       return <MakeDishesPizza />;
+    }
+    if (makeSelect === "sandwich") {
+      return <MakeDishesSandwich />;
+    }
+    if (makeSelect === "chicken") {
+      return <MakeDishesBox />;
     }
   };
   return (
