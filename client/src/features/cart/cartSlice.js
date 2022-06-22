@@ -33,6 +33,24 @@ const cartSlice = createSlice({
 
       localStorage.setItem("cart", JSON.stringify(state.cart));
     },
+    increaseQuantity: (state, action) => {
+      const dish = state.cart.find((dish) => dish._id === action.payload);
+      if (dish) {
+        dish.quantity += 1;
+      }
+
+      localStorage.setItem("cart", JSON.stringify(state.cart));
+    },
+    decreaseQuantity: (state, action) => {
+      const dish = state.cart.find((dish) => dish._id === action.payload);
+      if (dish && dish.quantity > 1) {
+        dish.quantity -= 1;
+      } else {
+        state.cart.splice(state.cart.indexOf(dish), 1);
+      }
+
+      localStorage.setItem("cart", JSON.stringify(state.cart));
+    },
     deleteDish: (state, action) => {
       const dish = state.cart.find((dish) => dish._id === action.payload._id);
       state.cart.splice(state.cart.indexOf(dish), 1);
@@ -41,5 +59,6 @@ const cartSlice = createSlice({
   },
 });
 
-export const { addToCart, deleteDish } = cartSlice.actions;
+export const { addToCart, deleteDish, increaseQuantity, decreaseQuantity } =
+  cartSlice.actions;
 export default cartSlice.reducer;

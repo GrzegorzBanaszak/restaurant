@@ -1,7 +1,10 @@
 import React from "react";
-
+import { increaseQuantity, decreaseQuantity } from "../features/cart/cartSlice";
+import { useDispatch } from "react-redux";
 const CartItem = ({ dish }) => {
-  const { name, price, type, ingredients, quantity } = dish;
+  const { _id, name, price, type, ingredients, quantity } = dish;
+  const dispatch = useDispatch();
+
   return (
     <>
       <div className="cart__grid--item">{name}</div>
@@ -26,9 +29,19 @@ const CartItem = ({ dish }) => {
       </div>
       <div className="cart__grid--item">
         <div className="cart__control">
-          <button className="cart__control--minus">-</button>
+          <button
+            className="cart__control--minus"
+            onClick={() => dispatch(decreaseQuantity(_id))}
+          >
+            -
+          </button>
           <div className="cart__control--quantity">{quantity}</div>
-          <button className="cart__control--plus">+</button>
+          <button
+            className="cart__control--plus"
+            onClick={() => dispatch(increaseQuantity(_id))}
+          >
+            +
+          </button>
         </div>
       </div>
     </>
