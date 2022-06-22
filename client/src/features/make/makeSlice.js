@@ -29,6 +29,9 @@ export const makeSlice = createSlice({
     reset: (state) => {
       state.pizza = defPizza;
     },
+    resetFoldable: (state) => {
+      state.pizzaFoldable = [];
+    },
     addPizzaFoldable: (state, action) => {
       const quantity = state.pizzaFoldable.reduce((curr, next) => {
         return curr + next.quantity;
@@ -77,5 +80,6 @@ export const {
   removePizzaFoldable,
   addPizzaFoldableQuantity,
   decrementPizzaFoldableQuantity,
+  resetFoldable,
 } = makeSlice.actions;
 export default makeSlice.reducer;

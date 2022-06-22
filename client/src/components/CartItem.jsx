@@ -11,18 +11,18 @@ const CartItem = ({ dish }) => {
       <div className="cart__grid--item">{price} zł</div>
 
       <div className="cart__grid--item">
-        {type === "pizza" ? (
-          <ul>
-            {ingredients.map((ingredient, index) => (
-              <li key={index}>{ingredient}</li>
-            ))}
-          </ul>
-        ) : (
+        {type === "foldable" ? (
           <ul>
             {ingredients.map((ingredient) => (
               <li key={ingredient._id}>
                 Pizza {ingredient.name} * {ingredient.quantity}
               </li>
+            ))}
+          </ul>
+        ) : (
+          <ul>
+            {ingredients.map((ingredient, index) => (
+              <li key={index}>{ingredient}</li>
             ))}
           </ul>
         )}

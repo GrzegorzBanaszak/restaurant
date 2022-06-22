@@ -8,6 +8,7 @@ import {
   addPizzaFoldable,
   addPizzaFoldableQuantity,
   decrementPizzaFoldableQuantity,
+  resetFoldable,
 } from "../features/make/makeSlice";
 import { addToCart } from "../features/cart/cartSlice";
 import { FiShoppingCart } from "react-icons/fi";
@@ -25,7 +26,6 @@ const PizzaFoldable = () => {
 
   const handleAddPizzaFoldable = () => {
     if (!pizzaFoldable.length < 8) {
-      console.log("hello");
       dispatch(
         addToCart({
           _id: uuidv4(),
@@ -36,6 +36,7 @@ const PizzaFoldable = () => {
           ingredients: pizzaFoldable,
         })
       );
+      dispatch(resetFoldable());
     }
   };
   return (
