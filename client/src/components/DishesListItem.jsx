@@ -6,12 +6,12 @@ import { BsTrash } from "react-icons/bs";
 const DishesListItem = ({ dish }) => {
   const { user } = useSelector((state) => state.auth);
   const { cart } = useSelector((state) => state.cart);
-  const { _id, name, price, ingredients } = dish;
+  const { _id, name, price, ingredients, type } = dish;
 
   const cartDish = cart.find((item) => item._id === _id);
   const dispatch = useDispatch();
-  const handleChangeQuantityInCart = (type) => {
-    dispatch(addToCart({ _id, name, price, type, ingredients }));
+  const handleChangeQuantityInCart = (actionType) => {
+    dispatch(addToCart({ _id, name, price, actionType, type, ingredients }));
   };
   return (
     <div className="dishes-item">

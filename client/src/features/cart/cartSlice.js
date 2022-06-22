@@ -11,18 +11,19 @@ const cartSlice = createSlice({
   initialState,
   reducers: {
     addToCart: (state, action) => {
-      const { _id, name, price, type, ingredients } = action.payload;
+      const { _id, name, price, actionType, type, ingredients } =
+        action.payload;
       const dish = state.cart.find((dish) => dish._id === action.payload._id);
 
-      if (type === "PLUS") {
+      if (actionType === "PLUS") {
         if (!dish) {
-          state.cart.push({ _id, name, price, ingredients, quantity: 1 });
+          state.cart.push({ _id, name, price, ingredients, type, quantity: 1 });
         } else {
           dish.quantity += 1;
         }
       }
 
-      if (type === "MINUS") {
+      if (actionType === "MINUS") {
         if (dish && dish.quantity > 1) {
           dish.quantity -= 1;
         } else {

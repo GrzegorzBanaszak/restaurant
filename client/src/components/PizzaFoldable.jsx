@@ -1,5 +1,6 @@
 import React from "react";
 import "../styles/components/MakeDishesPizza.scss";
+import { v4 as uuidv4 } from "uuid";
 import { AiFillMinusCircle, AiFillPlusCircle } from "react-icons/ai";
 import { useSelector, useDispatch } from "react-redux";
 import {
@@ -8,6 +9,7 @@ import {
   addPizzaFoldableQuantity,
   decrementPizzaFoldableQuantity,
 } from "../features/make/makeSlice";
+import { addToCart } from "../features/cart/cartSlice";
 import { FiShoppingCart } from "react-icons/fi";
 const PizzaFoldable = () => {
   const dispatch = useDispatch();
@@ -19,6 +21,22 @@ const PizzaFoldable = () => {
       sum += pizza.price * pizza.quantity;
     });
     return sum;
+  };
+
+  const handleAddPizzaFoldable = () => {
+    if (!pizzaFoldable.length < 8) {
+      console.log("hello");
+      dispatch(
+        addToCart({
+          _id: uuidv4(),
+          actionType: "PLUS",
+          type: "foldable",
+          name: "Pizza składana",
+          price: pizzaSum(),
+          ingredients: pizzaFoldable,
+        })
+      );
+    }
   };
   return (
     <>
@@ -108,7 +126,10 @@ const PizzaFoldable = () => {
               <div className="makePizza__grid--summary">Suma do zapłaty:</div>
               <div className="makePizza__grid--summary">{pizzaSum()} zł</div>
               <div className="makePizza__grid--summary">
-                <button className="makePizza__summary--btn">
+                <button
+                  className="makePizza__summary--btn"
+                  onClick={handleAddPizzaFoldable}
+                >
                   <FiShoppingCart /> Dodaj
                 </button>
               </div>

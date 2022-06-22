@@ -23,8 +23,9 @@ const PizzaOwn = () => {
     dispatch(
       addToCart({
         _id: uuidv4(),
-        type: "PLUS",
-        name: "Pizza ciasto" + pizza.cake,
+        actionType: "PLUS",
+        type: "pizza",
+        name: "Pizza ciasto " + pizza.cake,
         price: pizza.price,
         ingredients: pizza.ingredients,
       })
