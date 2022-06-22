@@ -1,10 +1,25 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "../styles/components/MakeDishes.scss";
 import { FaPizzaSlice } from "react-icons/fa";
 import { GiChickenLeg, GiSandwich } from "react-icons/gi";
+import { useNavigate } from "react-router-dom";
 import MakeDishesPizza from "../components/MakeDishesPizza";
+import { useSelector } from "react-redux";
 const MakeDishes = () => {
-  const [makeSelect, setMakeSelect] = useState("");
+  const nav = useNavigate();
+  const { user } = useSelector((state) => state.auth);
+  useEffect(() => {
+    if (!user) {
+      nav("/login");
+    }
+  }, []);
+  const [makeSelect, setMakeSelect] = useState("pizza");
+
+  const renderBeSelect = () => {
+    if (makeSelect === "pizza") {
+      return <MakeDishesPizza />;
+    }
+  };
   return (
     <section className="makeDishes">
       <div className="makeDishes__container">
@@ -13,22 +28,22 @@ const MakeDishes = () => {
             style={{ flexGrow: makeSelect === "pizza" ? 3 : 1 }}
             onClick={() => setMakeSelect("pizza")}
           >
-            <FaPizzaSlice /> Custom pizza
+            <FaPizzaSlice /> Stwórz pizzę
           </button>
           <button
             style={{ flexGrow: makeSelect === "chicken" ? 3 : 1 }}
             onClick={() => setMakeSelect("chicken")}
           >
-            <GiChickenLeg /> Custom chicken
+            <GiChickenLeg /> Stwórz kubełek kurczaka
           </button>
           <button
             style={{ flexGrow: makeSelect === "sandwich" ? 3 : 1 }}
             onClick={() => setMakeSelect("sandwich")}
           >
-            <GiSandwich /> Custom sandwiches
+            <GiSandwich /> Stwórz kanapkę
           </button>
         </div>
-        <MakeDishesPizza />
+        {renderBeSelect()}
       </div>
     </section>
   );
