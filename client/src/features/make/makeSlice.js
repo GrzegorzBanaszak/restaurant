@@ -117,6 +117,10 @@ export const makeSlice = createSlice({
         }
       }
     },
+    changeAdditionSize: (state, action) => {
+      const item = state.box.find((i) => i.name === action.payload.name);
+      item.size = action.payload.size;
+    },
   },
 });
 
@@ -134,5 +138,6 @@ export const {
   decreaseQuantityBox,
   changeDrink,
   changeAddition,
+  changeAdditionSize,
 } = makeSlice.actions;
 export default makeSlice.reducer;

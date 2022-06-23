@@ -5,6 +5,7 @@ import {
   changeAddition,
   increaseQuantityBox,
   decreaseQuantityBox,
+  changeAdditionSize,
 } from "../features/make/makeSlice";
 const MakeDishesBoxAdditionally = () => {
   const { box } = useSelector((state) => state.make);
@@ -25,6 +26,7 @@ const MakeDishesBoxAdditionally = () => {
             }`}
             key={index}
           >
+            <b>{additionally.price} zł/szt</b>
             <h4
               onClick={() =>
                 handleAdd({
@@ -42,7 +44,23 @@ const MakeDishesBoxAdditionally = () => {
                 {additionally.size && (
                   <div className="makeBox__size">
                     {additionally.size.map((size, index) => (
-                      <button key={index} className={`makeBox__size--button `}>
+                      <button
+                        key={index}
+                        onClick={() =>
+                          dispatch(
+                            changeAdditionSize({
+                              name: additionally.name,
+                              size,
+                            })
+                          )
+                        }
+                        className={`makeBox__size--button ${
+                          box.find((i) => i.name === additionally.name).size ===
+                          size
+                            ? "active"
+                            : ""
+                        }`}
+                      >
                         {size}
                       </button>
                     ))}
