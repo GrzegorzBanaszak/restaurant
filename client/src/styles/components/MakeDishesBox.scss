@@ -46,7 +46,7 @@
 
     &--name {
       font-size: 1.7rem;
-      width: 100%;
+      width: 70%;
       text-align: center;
     }
     &--description {
@@ -96,6 +96,57 @@
       padding: 0.3rem 1.5rem;
       background-color: white;
       color: black;
+    }
+    &--button {
+      margin-top: 0.4rem;
+      padding: 0.5rem;
+      border-radius: 10px;
+      color: #2e7d32;
+      font-weight: 600;
+      background-color: white;
+      border: none;
+      cursor: pointer;
+    }
+  }
+  &__extras {
+    display: flex;
+    gap: 1rem;
+    margin: 0.7rem 0;
+  }
+  &__extra {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 150px;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    h3 {
+      cursor: pointer;
+    }
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+      rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    &--active {
+      background-color: #2e7d32;
+      color: white;
+    }
+  }
+  &__size {
+    display: flex;
+    gap: 0.4rem;
+    &--button {
+      margin-top: 0.4rem;
+      padding: 0.5rem;
+      border-radius: 10px;
+      font-weight: 600;
+      color: white;
+      border: none;
+      background-color: transparent;
+    }
+    .active {
+      background-color: white;
+      color: #2e7d32;
     }
   }
 }

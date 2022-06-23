@@ -36,3 +36,5 @@ export const ingredientsList = [
       "Zawsze świeże, soczyste i ręcznie przyrządzane. Ich sekretem jest aromatyczna panierka na bazie 11 ziół.",
   },
 ];
+
+export const drinkList = ["Cola", "Fanta", "Sprite", "Mirinda", "Woda"];

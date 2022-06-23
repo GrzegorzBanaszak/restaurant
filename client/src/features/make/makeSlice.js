@@ -4,6 +4,8 @@ import { defPizza } from "../../utilis/makePizzaData";
 const initialState = {
   pizza: defPizza,
   pizzaFoldable: [],
+  box: [],
+  sandwich: [],
 };
 
 export const makeSlice = createSlice({
@@ -69,6 +71,36 @@ export const makeSlice = createSlice({
         state.pizzaFoldable.splice(state.pizzaFoldable.indexOf(pizza), 1);
       }
     },
+    setPizzaIngredients: (state, action) => {
+      const item = state.box.find((i) => i.name === action.payload.name);
+      if (item) {
+        state.box.splice(state.box.indexOf(item), 1);
+      } else {
+        state.box.push({ ...action.payload, quantity: 1 });
+      }
+    },
+    increaseQuantityBox: (state, action) => {
+      const item = state.box.find((i) => i.name === action.payload);
+      item.quantity += 1;
+    },
+    decreaseQuantityBox: (state, action) => {
+      const item = state.box.find((i) => i.name === action.payload);
+      if (item.quantity > 1) {
+        item.quantity -= 1;
+      } else {
+        state.box.splice(state.box.indexOf(item), 1);
+      }
+    },
+    changeDrink: (state, action) => {
+      const drink = state.box.find((i) => i.name === action.payload.name);
+      if (!drink) {
+        state.box.push(action.payload);
+      } else if (drink.size !== action.payload.size) {
+        drink.size = action.payload.size;
+      } else {
+        state.box.splice(state.box.indexOf(drink), 1);
+      }
+    },
   },
 });
 
@@ -80,6 +112,10 @@ export const {
   removePizzaFoldable,
   addPizzaFoldableQuantity,
   decrementPizzaFoldableQuantity,
+  setPizzaIngredients,
   resetFoldable,
+  increaseQuantityBox,
+  decreaseQuantityBox,
+  changeDrink,
 } = makeSlice.actions;
 export default makeSlice.reducer;
