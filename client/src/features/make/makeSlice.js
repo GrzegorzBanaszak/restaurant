@@ -30,6 +30,7 @@ export const makeSlice = createSlice({
     },
     reset: (state) => {
       state.pizza = defPizza;
+      state.box = [];
     },
     resetFoldable: (state) => {
       state.pizzaFoldable = [];
@@ -94,7 +95,7 @@ export const makeSlice = createSlice({
     changeDrink: (state, action) => {
       const drink = state.box.find((i) => i.name === action.payload.name);
       if (!drink && !action.payload.size) {
-        state.box.push({ ...action.payload, size: "small" });
+        state.box.push({ ...action.payload, size: "Mała", quantity: 1 });
       } else if (action.payload.size && drink.size !== action.payload.size) {
         drink.size = action.payload.size;
       } else {

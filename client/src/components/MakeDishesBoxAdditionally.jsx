@@ -30,7 +30,7 @@ const MakeDishesBoxAdditionally = () => {
               onClick={() =>
                 handleAdd({
                   name: additionally.name,
-                  size: additionally.size ? additionally.size[0] : null,
+                  size: additionally.size ? additionally.size[0].name : null,
                   price: additionally.size
                     ? additionally.size[0].price
                     : additionally.price,

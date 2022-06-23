@@ -37,7 +37,7 @@ export const ingredientsList = [
   },
 ];
 
-export const drinkList = ["pepsi", "fanta", "sprite", "mirinda", "woda"];
+export const drinkList = ["Pepsi", "Fanta", "Sprite", "Mirinda", "Woda"];
 export const additionallyList = [
   {
     name: "Frytki",

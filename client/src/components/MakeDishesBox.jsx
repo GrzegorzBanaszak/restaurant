@@ -3,6 +3,7 @@ import "../styles/components/MakeDishesBox.scss";
 import MakeDishesBoxAdditionally from "./MakeDishesBoxAdditionally";
 import MakeDishesBoxDrinks from "./MakeDishesBoxDrinks";
 import MakeDishesBoxIngredients from "./MakeDishesBoxIngredients";
+import MakeDishesBoxSummary from "./MakeDishesBoxSummary";
 
 const MakeDishesBox = () => {
   return (
@@ -10,6 +11,7 @@ const MakeDishesBox = () => {
       <MakeDishesBoxIngredients />
       <MakeDishesBoxDrinks />
       <MakeDishesBoxAdditionally />
+      <MakeDishesBoxSummary />
     </section>
   );
 };

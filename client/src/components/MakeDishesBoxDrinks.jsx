@@ -16,7 +16,9 @@ const MakeDishesBoxDrinks = () => {
           <div
             key={index}
             className={`makeBox__extra ${
-              box.some((item) => item.name === drink) ? `${drink}` : ""
+              box.some((item) => item.name === drink)
+                ? `${drink.toLowerCase()}`
+                : ""
             }`}
           >
             <h3 onClick={() => handleAdding({ name: drink, price: 3.5 })}>
@@ -26,36 +28,36 @@ const MakeDishesBoxDrinks = () => {
               <div className="makeBox__size">
                 <button
                   className={`makeBox__size--button ${
-                    box.find((x) => x.name === drink).size === "small"
+                    box.find((x) => x.name === drink).size === "Mała"
                       ? "active"
                       : ""
                   }`}
                   onClick={() =>
-                    handleAdding({ name: drink, price: 3.5, size: "small" })
+                    handleAdding({ name: drink, price: 3.5, size: "Mała" })
                   }
                 >
                   Mały
                 </button>
                 <button
                   className={`makeBox__size--button ${
-                    box.find((x) => x.name === drink).size === "medium"
+                    box.find((x) => x.name === drink).size === "Średnia"
                       ? "active"
                       : ""
                   }`}
                   onClick={() =>
-                    handleAdding({ name: drink, price: 5, size: "medium" })
+                    handleAdding({ name: drink, price: 5, size: "Średnia" })
                   }
                 >
                   Średni
                 </button>
                 <button
                   className={`makeBox__size--button ${
-                    box.find((x) => x.name === drink).size === "big"
+                    box.find((x) => x.name === drink).size === "Duży"
                       ? "active"
                       : ""
                   }`}
                   onClick={() =>
-                    handleAdding({ name: drink, price: 6.5, size: "big" })
+                    handleAdding({ name: drink, price: 6.5, size: "Duży" })
                   }
                 >
                   Duży
