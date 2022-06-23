@@ -26,13 +26,14 @@ const MakeDishesBoxAdditionally = () => {
             }`}
             key={index}
           >
-            <b>{additionally.price} zł/szt</b>
             <h4
               onClick={() =>
                 handleAdd({
                   name: additionally.name,
                   size: additionally.size ? additionally.size[0] : null,
-                  price: additionally.price,
+                  price: additionally.size
+                    ? additionally.size[0].price
+                    : additionally.price,
                 })
               }
             >
@@ -50,18 +51,19 @@ const MakeDishesBoxAdditionally = () => {
                           dispatch(
                             changeAdditionSize({
                               name: additionally.name,
-                              size,
+                              size: size.name,
+                              price: size.price,
                             })
                           )
                         }
                         className={`makeBox__size--button ${
                           box.find((i) => i.name === additionally.name).size ===
-                          size
+                          size.name
                             ? "active"
                             : ""
                         }`}
                       >
-                        {size}
+                        {size.name}
                       </button>
                     ))}
                   </div>

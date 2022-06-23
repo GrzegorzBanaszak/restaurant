@@ -120,6 +120,7 @@ export const makeSlice = createSlice({
     changeAdditionSize: (state, action) => {
       const item = state.box.find((i) => i.name === action.payload.name);
       item.size = action.payload.size;
+      item.price = action.payload.price;
     },
   },
 });

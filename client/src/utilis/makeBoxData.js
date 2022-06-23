@@ -41,13 +41,19 @@ export const drinkList = ["pepsi", "fanta", "sprite", "mirinda", "woda"];
 export const additionallyList = [
   {
     name: "Frytki",
-    price: 7.5,
-    size: ["Małe", "Średnie", "Duże"],
+    size: [
+      { name: "Małe", price: 6 },
+      { name: "Średnie", price: 8 },
+      { name: "Duże", price: 10 },
+    ],
   },
   {
     name: "Cebulowe okrażki",
-    price: 7,
-    size: ["Małe", "Średnie", "Duże"],
+    size: [
+      { name: "Małe", price: 6 },
+      { name: "Średnie", price: 8 },
+      { name: "Duże", price: 10 },
+    ],
   },
   {
     name: "Kukurydza",
