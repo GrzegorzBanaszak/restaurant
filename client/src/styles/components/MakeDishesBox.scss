@@ -101,7 +101,6 @@
       margin-top: 0.4rem;
       padding: 0.5rem;
       border-radius: 10px;
-      color: #2e7d32;
       font-weight: 600;
       background-color: white;
       border: none;
@@ -110,20 +109,30 @@
   }
   &__extras {
     display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
     gap: 1rem;
     margin: 0.7rem 0;
   }
   &__extra {
-    flex-grow: 1;
+    width: 18%;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    height: 150px;
+    gap: 0.4rem;
+    height: 200px;
     font-size: 1.2rem;
     text-transform: uppercase;
     h3 {
       cursor: pointer;
+      text-align: center;
+      user-select: none;
+    }
+    h4 {
+      cursor: pointer;
+      text-align: center;
+      user-select: none;
     }
     box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
       rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
@@ -144,9 +153,45 @@
       border: none;
       background-color: transparent;
     }
+  }
+  .pepsi {
+    background-color: #005cb4;
+    color: white;
     .active {
       background-color: white;
-      color: #2e7d32;
+      color: #005cb4;
+    }
+  }
+  .fanta {
+    background-color: #f7941e;
+    color: white;
+    .active {
+      background-color: white;
+      color: #f7941e;
+    }
+  }
+  .sprite {
+    background-color: #008b47;
+    color: white;
+    .active {
+      background-color: white;
+      color: #008b47;
+    }
+  }
+  .mirinda {
+    background-color: #f56e00;
+    color: white;
+    .active {
+      background-color: white;
+      color: #f56e00;
+    }
+  }
+  .woda {
+    background-color: #74ccf4;
+    color: white;
+    .active {
+      background-color: white;
+      color: #74ccf4;
     }
   }
 }

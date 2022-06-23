@@ -16,16 +16,10 @@ const MakeDishesBoxDrinks = () => {
           <div
             key={index}
             className={`makeBox__extra ${
-              box.some((item) => item.name === drink)
-                ? "makeBox__extra--active"
-                : ""
+              box.some((item) => item.name === drink) ? `${drink}` : ""
             }`}
           >
-            <h3
-              onClick={() =>
-                handleAdding({ name: drink, price: 3.5, size: "small" })
-              }
-            >
+            <h3 onClick={() => handleAdding({ name: drink, price: 3.5 })}>
               {drink}
             </h3>
             {box.some((x) => x.name === drink) && (

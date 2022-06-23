@@ -37,4 +37,44 @@ export const ingredientsList = [
   },
 ];
 
-export const drinkList = ["Cola", "Fanta", "Sprite", "Mirinda", "Woda"];
+export const drinkList = ["pepsi", "fanta", "sprite", "mirinda", "woda"];
+export const additionallyList = [
+  {
+    name: "Frytki",
+    price: 7.5,
+    size: ["Małe", "Średnie", "Duże"],
+  },
+  {
+    name: "Cebulowe okrażki",
+    price: 7,
+    size: ["Małe", "Średnie", "Duże"],
+  },
+  {
+    name: "Kukurydza",
+    price: 2.5,
+  },
+  {
+    name: "Sos majonezowo-musztardow",
+    price: 2,
+  },
+  {
+    name: "Sos czosnkowy",
+    price: 2,
+  },
+  {
+    name: "Sos majonezowy",
+    price: 2,
+  },
+  {
+    name: "Sos BBQ",
+    price: 2,
+  },
+  {
+    name: "Sos orientalny",
+    price: 2,
+  },
+  {
+    name: "Ketchap",
+    price: 2,
+  },
+];

@@ -93,12 +93,28 @@ export const makeSlice = createSlice({
     },
     changeDrink: (state, action) => {
       const drink = state.box.find((i) => i.name === action.payload.name);
-      if (!drink) {
-        state.box.push(action.payload);
-      } else if (drink.size !== action.payload.size) {
+      if (!drink && !action.payload.size) {
+        state.box.push({ ...action.payload, size: "small" });
+      } else if (action.payload.size && drink.size !== action.payload.size) {
         drink.size = action.payload.size;
       } else {
         state.box.splice(state.box.indexOf(drink), 1);
+      }
+    },
+    changeAddition: (state, action) => {
+      if (state.box.some((item) => item.name === action.payload.name)) {
+        const item = state.box.find((i) => i.name === action.payload.name);
+        state.box.splice(state.box.indexOf(item), 1);
+      } else {
+        if (action.payload.size) {
+          state.box.push({ ...action.payload, quantity: 1 });
+        } else {
+          state.box.push({
+            name: action.payload.name,
+            price: action.payload.price,
+            quantity: 1,
+          });
+        }
       }
     },
   },
@@ -117,5 +133,6 @@ export const {
   increaseQuantityBox,
   decreaseQuantityBox,
   changeDrink,
+  changeAddition,
 } = makeSlice.actions;
 export default makeSlice.reducer;
