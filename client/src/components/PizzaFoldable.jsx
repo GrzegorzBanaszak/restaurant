@@ -1,5 +1,4 @@
 import React from "react";
-import "../styles/components/MakeDishesPizza.scss";
 import { v4 as uuidv4 } from "uuid";
 import { AiFillMinusCircle, AiFillPlusCircle } from "react-icons/ai";
 import { useSelector, useDispatch } from "react-redux";

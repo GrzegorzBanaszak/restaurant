@@ -92,6 +92,20 @@
       gap: 1rem;
       margin-top: 1rem;
     }
+    &--btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      margin: 0 auto;
+      padding: 0.7rem 1rem;
+      border: none;
+      color: white;
+      background-color: $text-red-main;
+      border-radius: 15px;
+      font-weight: 600;
+      cursor: pointer;
+    }
   }
   &__col {
     box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
@@ -151,6 +165,10 @@
       color: white;
     }
     &--price {
+      width: 100%;
+      text-align: center;
+    }
+    &--description {
       width: 100%;
       text-align: center;
     }
@@ -289,6 +307,60 @@
     .active {
       background-color: white;
       color: #2e7d32;
+    }
+  }
+}
+@include desktop {
+  .makeItem {
+    &__group {
+      flex-direction: row;
+    }
+    &__summary {
+      &--flex {
+        flex-direction: row;
+        flex-wrap: nowrap;
+      }
+      &--type,
+      &--price,
+      &--ingredients {
+        width: auto;
+      }
+    }
+    &__box {
+      margin: 0.7rem 0;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      align-items: center;
+      padding: 2rem 0.5rem;
+      box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+        rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+      &--name {
+        width: 50%;
+      }
+      &--ingredients {
+        width: 30%;
+      }
+      &--price {
+        width: 40%;
+        font-size: 1.2rem;
+      }
+      &--description {
+        width: 30%;
+      }
+      &--icon {
+        width: 10%;
+      }
+    }
+    &__control {
+      width: 50%;
+      justify-content: flex-end;
+    }
+    &__elements {
+      flex-direction: row;
+    }
+    &__element {
+      width: 30%;
     }
   }
 }

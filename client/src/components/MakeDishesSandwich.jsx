@@ -98,7 +98,7 @@ const MakeDishesSandwich = () => {
             </div>
             <div className="makeItem__col makeItem__col--price">
               <h4>Cena:{sandwich.price} zł</h4>
-              <button onClick={addSandwich} className="makePizza__summary--btn">
+              <button onClick={addSandwich} className="makeItem__grid--btn">
                 <FiShoppingCart /> Dodaj
               </button>
             </div>
