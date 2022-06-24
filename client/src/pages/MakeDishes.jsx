@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "../styles/components/MakeDishes.scss";
+import "../styles/components/MakeItem.scss";
 import { FaPizzaSlice } from "react-icons/fa";
 import { GiChickenLeg, GiSandwich } from "react-icons/gi";
 import { useNavigate } from "react-router-dom";

@@ -10,14 +10,14 @@ const MakeDishesBoxDrinks = () => {
   };
   return (
     <>
-      <h3 className="makeBox__title">Napoje</h3>
-      <div className="makeBox__extras">
+      <h3 className="makeItem__title">Napoje</h3>
+      <div className="makeItem__elements">
         {drinkList.map((drink, index) => (
           <div
             key={index}
-            className={`makeBox__extra ${
+            className={`makeItem__element ${
               box.some((item) => item.name === drink)
-                ? `${drink.toLowerCase()}`
+                ? `${"makeItem__element--" + drink.toLowerCase()}`
                 : ""
             }`}
           >
@@ -25,9 +25,9 @@ const MakeDishesBoxDrinks = () => {
               {drink}
             </h3>
             {box.some((x) => x.name === drink) && (
-              <div className="makeBox__size">
+              <div className="makeItem__size">
                 <button
-                  className={`makeBox__size--button ${
+                  className={`makeItem__size--button ${
                     box.find((x) => x.name === drink).size === "Mała"
                       ? "active"
                       : ""
@@ -39,7 +39,7 @@ const MakeDishesBoxDrinks = () => {
                   Mały
                 </button>
                 <button
-                  className={`makeBox__size--button ${
+                  className={`makeItem__size--button ${
                     box.find((x) => x.name === drink).size === "Średnia"
                       ? "active"
                       : ""
@@ -51,7 +51,7 @@ const MakeDishesBoxDrinks = () => {
                   Średni
                 </button>
                 <button
-                  className={`makeBox__size--button ${
+                  className={`makeItem__size--button ${
                     box.find((x) => x.name === drink).size === "Duży"
                       ? "active"
                       : ""

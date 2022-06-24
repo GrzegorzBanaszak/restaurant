@@ -1,5 +1,4 @@
 import React from "react";
-import "../styles/components/MakeDishesPizza.scss";
 import { FiShoppingCart } from "react-icons/fi";
 import { breadType, sauceType } from "../utilis/makeSandwichData";
 import { ingredientsList } from "../utilis/makePizzaData";
@@ -35,13 +34,13 @@ const MakeDishesSandwich = () => {
     }
   };
   return (
-    <section className="makePizza">
-      <h3 className="makePizza__title">Pieczywo</h3>
-      <div className="makePizza__type">
+    <section className="makeItem">
+      <h3 className="makeItem__title">Pieczywo</h3>
+      <div className="makeItem__group">
         {breadType.map((item, index) => (
           <div
-            className={`makePizza__type--btn ${
-              sandwich.bread === item.name ? "makePizza__type--active" : ""
+            className={`makeItem__select ${
+              sandwich.bread === item.name ? "makeItem__select--active" : ""
             }`}
             onClick={() => dispatch(setSandwichBread(item))}
             key={index}
@@ -51,8 +50,8 @@ const MakeDishesSandwich = () => {
           </div>
         ))}
       </div>
-      <h3 className="makePizza__title">Sos do kanapki</h3>
-      <ul className="makePizza__list">
+      <h3 className="makeItem__title">Sos do kanapki</h3>
+      <ul className="makeItem__list">
         {sauceType.map((item, index) => (
           <li
             key={index}
@@ -67,8 +66,8 @@ const MakeDishesSandwich = () => {
           </li>
         ))}
       </ul>
-      <h3 className="makePizza__title">Składniki</h3>
-      <ul className="makePizza__list">
+      <h3 className="makeItem__title">Składniki</h3>
+      <ul className="makeItem__list">
         {ingredientsList.map((item, index) => (
           <li
             key={index}
@@ -83,13 +82,13 @@ const MakeDishesSandwich = () => {
       </ul>
       {sandwich.bread && (
         <>
-          <h3 className="makePizza__title">Podsumowanie</h3>
-          <div className="makePizza__summary">
-            <div className="makePizza__col cake">
+          <h3 className="makeItem__title">Podsumowanie</h3>
+          <div className="makeItem__summary--flex">
+            <div className="makeItem__col makeItem__col--type">
               <h4>Typ pieczywa</h4>
               <p>{sandwich.bread}</p>
             </div>
-            <div className="makePizza__col ingredients">
+            <div className="makeItem__col makeItem__col--ingredients">
               <h4>Składniki</h4>
               <ul>
                 {sandwich.ingredients.map((item, index) => {
@@ -97,7 +96,7 @@ const MakeDishesSandwich = () => {
                 })}
               </ul>
             </div>
-            <div className="makePizza__col price">
+            <div className="makeItem__col makeItem__col--price">
               <h4>Cena:{sandwich.price} zł</h4>
               <button onClick={addSandwich} className="makePizza__summary--btn">
                 <FiShoppingCart /> Dodaj

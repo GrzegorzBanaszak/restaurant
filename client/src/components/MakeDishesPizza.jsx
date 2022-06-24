@@ -1,5 +1,4 @@
 import { useState } from "react";
-import "../styles/components/MakeDishesPizza.scss";
 import { AiFillCheckCircle } from "react-icons/ai";
 import { typeList } from "../utilis/makePizzaData";
 import PizzaOwn from "./PizzaOwn";
@@ -9,15 +8,15 @@ const MakeDishesPizza = () => {
   const [type, setType] = useState(typeList[0]);
 
   return (
-    <section className="makePizza">
-      <h3 className="makePizza__title">Typ tworzenia</h3>
-      <div className="makePizza__type">
+    <section className="makeItem">
+      <h3 className="makeItem__title">Typ tworzenia</h3>
+      <div className="makeItem__group">
         {typeList.map((item, index) => (
           <div
             key={index}
             onClick={() => setType(item)}
-            className={`makePizza__type--btn ${
-              item === type && "makePizza__type--active"
+            className={`makeItem__select ${
+              item === type && "makeItem__select--active"
             }`}
           >
             {item === type && <AiFillCheckCircle color="white" fontSize={30} />}

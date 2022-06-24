@@ -15,13 +15,13 @@ const MakeDishesBoxAdditionally = () => {
   };
   return (
     <>
-      <h3 className="makeBox__title">Dodatki</h3>
-      <div className="makeBox__extras">
+      <h3 className="makeItem__title">Dodatki</h3>
+      <div className="makeItem__elements">
         {additionallyList.map((additionally, index) => (
           <div
-            className={`makeBox__extra ${
+            className={`makeItem__element ${
               box.some((item) => item.name === additionally.name)
-                ? "makeBox__extra--active"
+                ? "makeItem__element--active"
                 : ""
             }`}
             key={index}
@@ -43,7 +43,7 @@ const MakeDishesBoxAdditionally = () => {
             {box.some((item) => item.name === additionally.name) && (
               <>
                 {additionally.size && (
-                  <div className="makeBox__size">
+                  <div className="makeItem__size">
                     {additionally.size.map((size, index) => (
                       <button
                         key={index}
@@ -56,7 +56,7 @@ const MakeDishesBoxAdditionally = () => {
                             })
                           )
                         }
-                        className={`makeBox__size--button ${
+                        className={`makeItem__size--button ${
                           box.find((i) => i.name === additionally.name).size ===
                           size.name
                             ? "active"
@@ -69,20 +69,20 @@ const MakeDishesBoxAdditionally = () => {
                   </div>
                 )}
 
-                <div className="makeBox__control">
+                <div className="makeItem__control">
                   <button
-                    className="makeBox__control--minus"
+                    className="makeItem__control--minus"
                     onClick={() =>
                       dispatch(decreaseQuantityBox(additionally.name))
                     }
                   >
                     -
                   </button>
-                  <div className="makeBox__control--quantity">
+                  <div className="makeItem__control--quantity">
                     {box.find((i) => i.name === additionally.name).quantity}
                   </div>
                   <button
-                    className="makeBox__control--plus"
+                    className="makeItem__control--plus"
                     onClick={() =>
                       dispatch(increaseQuantityBox(additionally.name))
                     }

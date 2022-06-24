@@ -41,20 +41,20 @@ const PizzaFoldable = () => {
   };
   return (
     <>
-      <h3 className="makePizza__title">Pizze do wyboru</h3>
-      <section className="makePizza__pizzas">
+      <h3 className="makeItem__title">Pizze do wyboru</h3>
+      <section>
         {dishes
           .filter((dish) => dish.type === "pizza")
           .map(({ _id, name, price, ingredients }) => (
             <div
               key={_id}
-              className={`makePizza__pizza ${
+              className={`makeItem__box ${
                 pizzaFoldable.some((pizza) => pizza._id === _id)
-                  ? "makePizza__pizza--active"
+                  ? "makeItem__box--active"
                   : ""
               }`}
             >
-              <div className="makePizza__pizza--icon">
+              <div className="makeItem__box--icon">
                 {pizzaFoldable.some((pizza) => pizza._id === _id) ? (
                   <AiFillMinusCircle
                     fontSize={30}
@@ -72,30 +72,30 @@ const PizzaFoldable = () => {
                 )}
               </div>
 
-              <h4 className="makePizza__pizza--name">{name}</h4>
-              <ul className="makePizza__pizza--ingredients">
+              <h4 className="makeItem__box--name">{name}</h4>
+              <ul className="makeItem__box--ingredients">
                 {ingredients.map((ingredient, index) => (
                   <li key={index}>{ingredient}</li>
                 ))}
               </ul>
-              <div className="makePizza__pizza--price">
+              <div className="makeItem__box--price">
                 Cena: {(price / 8).toFixed(2)} zł/szt
               </div>
               {pizzaFoldable.some((item) => item._id === _id) && (
-                <div className="makePizza__control">
+                <div className="makeItem__control">
                   <button
-                    className="makePizza__control--minus"
+                    className="makeItem__control--minus"
                     onClick={() =>
                       dispatch(decrementPizzaFoldableQuantity(_id))
                     }
                   >
                     -
                   </button>
-                  <div className="makePizza__control--quantity">
+                  <div className="makeItem__control--quantity">
                     {pizzaFoldable.find((item) => item._id === _id).quantity}
                   </div>
                   <button
-                    className="makePizza__control--plus"
+                    className="makeItem__control--plus"
                     onClick={() => dispatch(addPizzaFoldableQuantity(_id))}
                   >
                     +
@@ -107,28 +107,28 @@ const PizzaFoldable = () => {
       </section>
       {pizzaFoldable.length > 0 && (
         <>
-          <h3 className="makePizza__title">Podsumowanie</h3>
-          <div className="makePizza__summary">
-            <div className="makePizza__grid">
-              <div className="makePizza__grid--header">Nazwa</div>
-              <div className="makePizza__grid--header">Ilość</div>
-              <div className="makePizza__grid--header">Cena</div>
+          <h3 className="makeItem__title">Podsumowanie</h3>
+          <div className="makeItem__summary">
+            <div className="makeItem__grid">
+              <div className="makeItem__grid--header">Nazwa</div>
+              <div className="makeItem__grid--header">Ilość</div>
+              <div className="makeItem__grid--header">Cena</div>
               {pizzaFoldable.map(({ name, quantity, price }, index) => (
                 <React.Fragment key={index}>
-                  <div className="makePizza__grid--item">Pizza {name}</div>
-                  <div className="makePizza__grid--item">
+                  <div className="makeItem__grid--item">Pizza {name}</div>
+                  <div className="makeItem__grid--item">
                     {price * quantity} zł
                   </div>
-                  <div className="makePizza__grid--item">
+                  <div className="makeItem__grid--item">
                     {quantity} kawałków
                   </div>
                 </React.Fragment>
               ))}
-              <div className="makePizza__grid--summary">Suma do zapłaty:</div>
-              <div className="makePizza__grid--summary">{pizzaSum()} zł</div>
-              <div className="makePizza__grid--summary">
+              <div className="makeItem__grid--summary">Suma do zapłaty:</div>
+              <div className="makeItem__grid--summary">{pizzaSum()} zł</div>
+              <div className="makeItem__grid--summary">
                 <button
-                  className="makePizza__summary--btn"
+                  className="makeItem__grid--btn"
                   onClick={handleAddPizzaFoldable}
                 >
                   <FiShoppingCart /> Dodaj

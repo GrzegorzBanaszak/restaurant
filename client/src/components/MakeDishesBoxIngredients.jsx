@@ -1,4 +1,3 @@
-import React from "react";
 import { ingredientsList } from "../utilis/makeBoxData";
 import { useDispatch, useSelector } from "react-redux";
 import { AiFillMinusCircle, AiFillPlusCircle } from "react-icons/ai";
@@ -16,16 +15,16 @@ const MakeDishesBoxIngredients = () => {
   };
   return (
     <>
-      <h3 className="makeBox__title">Składniki</h3>
+      <h3 className="makeItem__title">Składniki</h3>
       <div>
         {ingredientsList.map(({ name, price, description }, index) => (
           <div
             key={index}
-            className={`makeBox__item ${
-              box.some((i) => i.name === name) ? "makeBox__item--active" : ""
+            className={`makeItem__box ${
+              box.some((i) => i.name === name) ? "makeItem__box--active" : ""
             }`}
           >
-            <div className="makeBox__item--icon">
+            <div className="makeItem__box--icon">
               {box.some((i) => i.name === name) ? (
                 <AiFillMinusCircle
                   fontSize={30}
@@ -50,24 +49,24 @@ const MakeDishesBoxIngredients = () => {
                 />
               )}
             </div>
-            <h4 className="makeBox__item--name">{name}</h4>
-            <p className="makeBox__item--description">{description}</p>
-            <div className="makeBox__item--price">
+            <h4 className="makeItem__box--name">{name}</h4>
+            <p className="makeItem__box--description">{description}</p>
+            <div className="makeItem__box--price">
               {price.toFixed(2)} zł/szt
             </div>
             {box.some((i) => i.name === name) && (
-              <div className="makeBox__control">
+              <div className="makeItem__control">
                 <button
-                  className="makeBox__control--minus"
+                  className="makeItem__control--minus"
                   onClick={() => dispatch(decreaseQuantityBox(name))}
                 >
                   -
                 </button>
-                <div className="makeBox__control--quantity">
+                <div className="makeItem__control--quantity">
                   {box.find((i) => i.name === name).quantity}
                 </div>
                 <button
-                  className="makeBox__control--plus"
+                  className="makeItem__control--plus"
                   onClick={() => dispatch(increaseQuantityBox(name))}
                 >
                   +

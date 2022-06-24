@@ -82,6 +82,7 @@ export const authSlice = createSlice({
         if (action.payload === "Token has expired") {
           state.token = null;
           localStorage.removeItem("token");
+          localStorage.removeItem("cart");
           state.user = null;
         } else {
           state.message = action.payload;
