@@ -1,11 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { defPizza } from "../../utilis/makePizzaData";
-
+import { breadType, defSandwich } from "../../utilis/makeSandwichData";
 const initialState = {
   pizza: defPizza,
   pizzaFoldable: [],
   box: [],
-  sandwich: [],
+  sandwich: defSandwich,
 };
 
 export const makeSlice = createSlice({
@@ -31,6 +31,7 @@ export const makeSlice = createSlice({
     reset: (state) => {
       state.pizza = defPizza;
       state.box = [];
+      state.sandwich = defSandwich;
     },
     resetFoldable: (state) => {
       state.pizzaFoldable = [];
@@ -123,6 +124,36 @@ export const makeSlice = createSlice({
       item.size = action.payload.size;
       item.price = action.payload.price;
     },
+    setSandwichBread: (state, action) => {
+      if (
+        state.sandwich.bread &&
+        state.sandwich.bread !== action.payload.name
+      ) {
+        const oldBreadType = breadType.find(
+          (b) => b.name === state.sandwich.bread
+        );
+        state.sandwich.price -= oldBreadType.price;
+        state.sandwich.bread = action.payload.name;
+        state.sandwich.price += action.payload.price;
+      }
+
+      if (!state.sandwich.bread) {
+        state.sandwich.bread = action.payload.name;
+        state.sandwich.price += action.payload.price;
+      }
+    },
+    setSandwichIngredient: (state, action) => {
+      if (state.sandwich.ingredients.includes(action.payload.name)) {
+        state.sandwich.ingredients.splice(
+          state.sandwich.ingredients.indexOf(action.payload.name),
+          1
+        );
+        state.sandwich.price -= action.payload.price;
+      } else {
+        state.sandwich.ingredients.push(action.payload.name);
+        state.sandwich.price += action.payload.price;
+      }
+    },
   },
 });
 
@@ -141,5 +172,7 @@ export const {
   changeDrink,
   changeAddition,
   changeAdditionSize,
+  setSandwichBread,
+  setSandwichIngredient,
 } = makeSlice.actions;
 export default makeSlice.reducer;
