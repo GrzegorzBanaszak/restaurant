@@ -39,33 +39,78 @@
       color: black;
     }
   }
-  &__grid {
-    margin: 0 2rem;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+  &__element {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem 0;
+    padding: 0.7rem;
+    margin: 0.7rem 0;
+
     box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
       rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
-    &--header {
+    &--name {
+      width: 100%;
       text-align: center;
       font-size: 1.5rem;
-      font-weight: 600;
-      padding: 0.7rem 0;
+      font-weight: bold;
     }
-    &--item {
-      text-align: center;
+    &--price {
+      width: 50%;
       font-size: 1.3rem;
-      padding: 1rem 0;
-      border-top: 1px solid #ccc;
+      font-weight: bold;
+      text-align: center;
+    }
+    &--control {
+      width: 50%;
+    }
+    &--ingredient {
+      width: 100%;
       ul {
         list-style-type: none;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 0.5rem;
       }
     }
-    &--summary {
-      text-align: center;
-      font-size: 1.3rem;
-      margin-top: 1.4rem;
-      padding: 1rem 0;
-      border-top: 1px solid #ccc;
+  }
+  &__summary {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin: 0.7rem 0;
+    padding: 0.7rem;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+      rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    &--type {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      user-select: none;
+      label {
+        cursor: pointer;
+      }
+      input[type="checkbox"] {
+        margin-right: 0.5rem;
+      }
+    }
+    &--total {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+    }
+    &--submit {
+      display: block;
+      // margin: 0 auto;
+      padding: 0.7rem;
+      border: none;
+      color: white;
+      background-color: $text-red-main;
+      border-radius: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      text-transform: uppercase;
     }
   }
 
@@ -88,5 +133,26 @@
 }
 @include desktop {
   .cart {
+    &__element {
+      flex-wrap: nowrap;
+      align-items: center;
+      gap: 1rem 0;
+      padding: 0.7rem;
+      &--name {
+        width: 30%;
+      }
+      &--price {
+        width: 15%;
+      }
+      &--control {
+        width: 25%;
+      }
+      &--ingredient {
+        width: 30%;
+      }
+    }
+    &__summary {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
   }
 }

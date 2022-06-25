@@ -6,11 +6,10 @@ const CartItem = ({ dish }) => {
   const dispatch = useDispatch();
 
   return (
-    <>
-      <div className="cart__grid--item">{name}</div>
-      <div className="cart__grid--item">{price} zł</div>
+    <div className="cart__element">
+      <div className="cart__element--name">{name}</div>
 
-      <div className="cart__grid--item">
+      <div className="cart__element--ingredient">
         {type === "foldable" ? (
           <ul>
             {ingredients.map((ingredient) => (
@@ -27,7 +26,7 @@ const CartItem = ({ dish }) => {
           </ul>
         )}
       </div>
-      <div className="cart__grid--item">
+      <div className="cart__element--control">
         <div className="cart__control">
           <button
             className="cart__control--minus"
@@ -44,7 +43,10 @@ const CartItem = ({ dish }) => {
           </button>
         </div>
       </div>
-    </>
+      <div className="cart__element--price">
+        Cena: {(price * quantity).toFixed(2)} zł
+      </div>
+    </div>
   );
 };
 

@@ -11,7 +11,7 @@ const Cart = () => {
     cart.forEach((item) => {
       sum += item.price * item.quantity;
     });
-    return sum;
+    return sum.toFixed(2);
   };
 
   if (cart.length === 0) {
@@ -31,19 +31,26 @@ const Cart = () => {
       <h2 className="cart__header">
         <FaShoppingCart size={36} /> Koszyk
       </h2>
-      <section className="cart__grid">
-        <div className="cart__grid--header">Nazwa</div>
-        <div className="cart__grid--header">Cena</div>
-        <div className="cart__grid--header">Składniki</div>
-        <div className="cart__grid--header">Ilość</div>
-        {cart.map((dish) => (
-          <CartItem key={dish._id} dish={dish} />
+      <section className="cart__container">
+        {cart.map((item) => (
+          <CartItem key={item._id} dish={item} />
         ))}
-        <div className="makePizza__grid--summary">Do zapłaty:</div>
-        <div className="makePizza__grid--summary">{cartSum()} zł</div>
-        <div className="makePizza__grid--summary"></div>
-
-        <div className="makePizza__grid--summary"></div>
+        <div className="cart__summary">
+          <div className="cart__summary--type">
+            <label>
+              <input type="checkbox" />
+              Płatność kartą
+            </label>
+            <label>
+              <input type="checkbox" />
+              Płatność przy odbiorze
+            </label>
+          </div>
+          <div className="cart__summary--total">
+            <h3>Łącznie do zapłaty: {cartSum()} zł</h3>
+          </div>
+          <button className="cart__summary--submit">Zamawiam</button>
+        </div>
       </section>
     </section>
   );
