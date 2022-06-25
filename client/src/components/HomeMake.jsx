@@ -1,7 +1,7 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import "../styles/components/HomeMake.scss";
-import bgPhone from "../assets/phone.png";
+import PhonePreview from "./PhonePreview";
+
 const HomeMake = () => {
   return (
     <section className="make">
@@ -23,12 +23,7 @@ const HomeMake = () => {
           </Link>
         </div>
         <div className="make__preview">
-          <div
-            className="make__phone"
-            style={{ backgroundImage: `url(${bgPhone})` }}
-          >
-            <div className="make__phone--content">hello</div>
-          </div>
+          <PhonePreview />
         </div>
       </div>
     </section>
