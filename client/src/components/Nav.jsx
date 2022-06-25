@@ -4,9 +4,11 @@ import logo from "../assets/logored.png";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { BiFoodMenu, BiUser } from "react-icons/bi";
+import { BiFoodMenu } from "react-icons/bi";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleSidebar, toggleMenu } from "../features/menu/menuSlice";
+import { resetCart } from "../features/cart/cartSlice";
+import { reset } from "../features/make/makeSlice";
 import { logout } from "../features/auth/authSlice";
 import { FiShoppingCart } from "react-icons/fi";
 const menuList = [
@@ -32,6 +34,9 @@ const Nav = () => {
   const nav = useNavigate();
   const onClickLogout = () => {
     dispatch(logout());
+    dispatch(resetCart());
+    dispatch(reset());
+    nav("/");
   };
   return (
     <nav className="nav">
