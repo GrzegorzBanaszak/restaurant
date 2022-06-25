@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/GrzegorzBanaszak/restaurant/static/css/main.99e7e363.css",
+    "main.js": "/GrzegorzBanaszak/restaurant/static/js/main.f37096e3.js",
+    "static/media/contact-bg.png": "/GrzegorzBanaszak/restaurant/static/media/contact-bg.588ee56d250c9767f108.png",
+    "static/media/menu-bg-desktop.png": "/GrzegorzBanaszak/restaurant/static/media/menu-bg-desktop.0ad6aa57e1d27efbd1e3.png",
+    "static/media/pizza-open-desktop.jpg": "/GrzegorzBanaszak/restaurant/static/media/pizza-open-desktop.c7b41be9da5779fc0fd0.jpg",
+    "static/media/pizza-open.png": "/GrzegorzBanaszak/restaurant/static/media/pizza-open.f599b7a235cb78619237.png",
+    "static/media/menu-bg.png": "/GrzegorzBanaszak/restaurant/static/media/menu-bg.4ffdadabc8755f497785.png",
+    "static/media/menu.png": "/GrzegorzBanaszak/restaurant/static/media/menu.e7ca10368571122b68a2.png",
+    "static/media/phone.png": "/GrzegorzBanaszak/restaurant/static/media/phone.ff132adf44eb2c5dd4bc.png",
+    "static/media/eating.png": "/GrzegorzBanaszak/restaurant/static/media/eating.f6581867cb2795ce6b3e.png",
+    "static/media/delivery.svg": "/GrzegorzBanaszak/restaurant/static/media/delivery.8ff7dd842140fa4269f8.svg",
+    "index.html": "/GrzegorzBanaszak/restaurant/index.html",
+    "main.99e7e363.css.map": "/GrzegorzBanaszak/restaurant/static/css/main.99e7e363.css.map",
+    "main.f37096e3.js.map": "/GrzegorzBanaszak/restaurant/static/js/main.f37096e3.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.99e7e363.css",
+    "static/js/main.f37096e3.js"
+  ]
+}
