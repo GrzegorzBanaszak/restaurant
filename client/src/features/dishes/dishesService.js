@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://192.168.0.107:5000/api/dishes";
+const API_URL = "https://pizza-restaurant-backend.herokuapp.com/api/dishes";
 
 const getDishes = async () => {
   const res = await axios.get(API_URL);

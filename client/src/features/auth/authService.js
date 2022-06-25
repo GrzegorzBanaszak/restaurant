@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://192.168.0.107:5000/api/auth/";
+const API_URL = "https://pizza-restaurant-backend.herokuapp.com/api/auth/";
 
 const getUser = async (token) => {
   const config = {
