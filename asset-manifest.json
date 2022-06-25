@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/GrzegorzBanaszak/restaurant/static/css/main.99e7e363.css",
-    "main.js": "/GrzegorzBanaszak/restaurant/static/js/main.f37096e3.js",
+    "main.js": "/GrzegorzBanaszak/restaurant/static/js/main.ed7fc423.js",
     "static/media/contact-bg.png": "/GrzegorzBanaszak/restaurant/static/media/contact-bg.588ee56d250c9767f108.png",
     "static/media/menu-bg-desktop.png": "/GrzegorzBanaszak/restaurant/static/media/menu-bg-desktop.0ad6aa57e1d27efbd1e3.png",
     "static/media/pizza-open-desktop.jpg": "/GrzegorzBanaszak/restaurant/static/media/pizza-open-desktop.c7b41be9da5779fc0fd0.jpg",
@@ -13,10 +13,10 @@
     "static/media/delivery.svg": "/GrzegorzBanaszak/restaurant/static/media/delivery.8ff7dd842140fa4269f8.svg",
     "index.html": "/GrzegorzBanaszak/restaurant/index.html",
     "main.99e7e363.css.map": "/GrzegorzBanaszak/restaurant/static/css/main.99e7e363.css.map",
-    "main.f37096e3.js.map": "/GrzegorzBanaszak/restaurant/static/js/main.f37096e3.js.map"
+    "main.ed7fc423.js.map": "/GrzegorzBanaszak/restaurant/static/js/main.ed7fc423.js.map"
   },
   "entrypoints": [
     "static/css/main.99e7e363.css",
-    "static/js/main.f37096e3.js"
+    "static/js/main.ed7fc423.js"
   ]
 }
