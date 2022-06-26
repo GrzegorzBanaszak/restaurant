@@ -9,7 +9,7 @@ import Register from "./pages/Register";
 import "./styles/main.scss";
 function App() {
   return (
-    <BrowserRouter basename="/restaurant/">
+    <BrowserRouter>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
