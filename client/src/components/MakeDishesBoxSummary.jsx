@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
 import { addToCart } from "../features/cart/cartSlice";
 import { reset } from "../features/make/makeSlice";
+import { setMessageText } from "../features/message/messageSlice";
 const MakeDishesBoxSummary = () => {
   const { box } = useSelector((state) => state.make);
   const dispatch = useDispatch();
@@ -37,6 +38,8 @@ const MakeDishesBoxSummary = () => {
         })
       );
       dispatch(reset());
+    } else {
+      dispatch(setMessageText("Box musi posiadać minimum 1 produkt"));
     }
   };
   return (

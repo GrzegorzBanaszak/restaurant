@@ -11,10 +11,13 @@ import {
 } from "../features/make/makeSlice";
 import { addToCart } from "../features/cart/cartSlice";
 import { FiShoppingCart } from "react-icons/fi";
+import { setMessageText } from "../features/message/messageSlice";
+
 const PizzaFoldable = () => {
   const dispatch = useDispatch();
   const { dishes } = useSelector((state) => state.dishes);
   const { pizzaFoldable } = useSelector((state) => state.make);
+
   const pizzaSum = () => {
     let sum = 0;
     pizzaFoldable.forEach((pizza) => {
@@ -24,7 +27,7 @@ const PizzaFoldable = () => {
   };
 
   const handleAddPizzaFoldable = () => {
-    if (!pizzaFoldable.length < 8) {
+    if (pizzaFoldable.length === 8) {
       dispatch(
         addToCart({
           _id: uuidv4(),
@@ -36,6 +39,8 @@ const PizzaFoldable = () => {
         })
       );
       dispatch(resetFoldable());
+    } else {
+      dispatch(setMessageText("Pizza musi posiadać minimum 8 kawałków"));
     }
   };
   return (
