@@ -16,6 +16,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 app.use("/api/dishes/", require("./routes/dishRoutes"));
 app.use("/api/auth/", require("./routes/userRoutes"));
+app.use("/api/orders/", require("./routes/orderRoutes"));
 app.use(errorHandeler);
 
 httpServer.listen(PORT, () => {
