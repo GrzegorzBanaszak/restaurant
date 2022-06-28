@@ -29,20 +29,30 @@
   }
   &__row {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 0.7rem;
-    font-size: 1.2rem;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1.3rem;
     &--title {
-      font-size: 1.4rem;
-      width: 50%;
+      font-size: 1.3rem;
     }
     ul {
       list-style-type: none;
       flex-direction: column;
-      align-items: flex-end;
       display: flex;
-      width: 50%;
+    }
+  }
+}
+
+@include desktop {
+  .user {
+    &__row {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 1.2rem;
+      &--title {
+        font-size: 1.4rem;
+      }
     }
   }
 }

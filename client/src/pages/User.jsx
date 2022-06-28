@@ -7,9 +7,7 @@ import { getOrders } from "../features/orders/ordersSlice";
 import Spinner from "../components/Spinner";
 const User = () => {
   const { user, token } = useSelector((state) => state.auth);
-  const { orders, isSuccess, isLoading, isError } = useSelector(
-    (state) => state.orders
-  );
+  const { orders, isLoading } = useSelector((state) => state.orders);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -18,7 +16,7 @@ const User = () => {
     }
   }, [orders, isLoading]);
 
-  if (isLoading || !user) {
+  if (isLoading || !orders || !user) {
     return <Spinner color="#b71c1c" />;
   }
   return (

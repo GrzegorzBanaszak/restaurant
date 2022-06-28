@@ -3,12 +3,21 @@ import "../styles/components/Cart.scss";
 import { FaShoppingCart } from "react-icons/fa";
 import { useState } from "react";
 import CartItem from "../components/CartItem";
-import { sendOrder } from "../features/cart/cartSlice";
+import { sendOrder, resetCart } from "../features/cart/cartSlice";
+import { getOrders } from "../features/orders/ordersSlice";
+import { useEffect } from "react";
 const Cart = () => {
-  const { cart } = useSelector((state) => state.cart);
+  const { cart, isSuccess } = useSelector((state) => state.cart);
   const { token } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const [payType, setPayType] = useState("");
+
+  useEffect(() => {
+    if (isSuccess) {
+      dispatch(resetCart());
+      dispatch(getOrders(token));
+    }
+  }, [isSuccess]);
 
   const submitOrder = () => {
     if (payType === "") {

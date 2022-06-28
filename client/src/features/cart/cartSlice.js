@@ -76,6 +76,10 @@ const cartSlice = createSlice({
     resetCart: (state) => {
       state.cart = [];
       localStorage.removeItem("cart");
+      state.isSuccess = false;
+      state.isError = false;
+      state.isLoading = false;
+      state.message = "";
     },
   },
   extraReducers: (builder) => {
