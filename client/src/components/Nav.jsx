@@ -5,6 +5,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { BiFoodMenu } from "react-icons/bi";
+import { AiOutlineUser } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleSidebar, toggleMenu } from "../features/menu/menuSlice";
 import { resetCart } from "../features/cart/cartSlice";
@@ -59,6 +60,9 @@ const Nav = () => {
                 <FiShoppingCart />
                 {cart.length > 0 && <p>{cart.length}</p>}
               </div>
+              <div className="nav__cart" onClick={() => nav("/user")}>
+                <AiOutlineUser />
+              </div>
               <button className="nav__btn" onClick={onClickLogout}>
                 Wyloguj
               </button>
@@ -112,6 +116,9 @@ const Nav = () => {
               <div className="nav__cart" onClick={() => nav("/cart")}>
                 <FiShoppingCart />
                 {cart.length > 0 && <p>{cart.length}</p>}
+              </div>
+              <div className="nav__cart" onClick={() => nav("/user")}>
+                <AiOutlineUser />
               </div>
               <button className="nav__btn" onClick={onClickLogout}>
                 Wyloguj

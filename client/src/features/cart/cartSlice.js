@@ -1,10 +1,27 @@
-const { createSlice } = require("@reduxjs/toolkit");
-
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import cartServices from "./cartService";
 const cart = JSON.parse(localStorage.getItem("cart"));
 
 const initialState = {
   cart: cart ? cart : [],
+  isError: false,
+  isSuccess: false,
+  isLoading: false,
+  message: "",
 };
+
+export const sendOrder = createAsyncThunk(
+  "cart/send",
+  async (data, thunkAPI) => {
+    try {
+      return await cartServices.sendOrder(data);
+    } catch (error) {
+      const message =
+        error.response.data.message || error.message || error.toString();
+      return thunkAPI.rejectWithValue(message);
+    }
+  }
+);
 
 const cartSlice = createSlice({
   name: "cart",
@@ -60,6 +77,24 @@ const cartSlice = createSlice({
       state.cart = [];
       localStorage.removeItem("cart");
     },
+  },
+  extraReducers: (builder) => {
+    builder
+      .addCase(sendOrder.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(sendOrder.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.isSuccess = true;
+        state.cart = [];
+        localStorage.removeItem("cart");
+        state.message = action.payload;
+      })
+      .addCase(sendOrder.rejected, (state, action) => {
+        state.isLoading = false;
+        state.isError = true;
+        state.message = action.payload;
+      });
   },
 });
 

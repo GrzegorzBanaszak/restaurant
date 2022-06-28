@@ -1,10 +1,28 @@
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import "../styles/components/Cart.scss";
 import { FaShoppingCart } from "react-icons/fa";
-import React from "react";
+import { useState } from "react";
 import CartItem from "../components/CartItem";
+import { sendOrder } from "../features/cart/cartSlice";
 const Cart = () => {
   const { cart } = useSelector((state) => state.cart);
+  const { token } = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
+  const [payType, setPayType] = useState("");
+
+  const submitOrder = () => {
+    if (payType === "") {
+      return;
+    }
+
+    const order = {
+      orderItems: cart,
+      orderTotal: Number(cartSum()),
+      payType,
+    };
+
+    dispatch(sendOrder({ order, token }));
+  };
 
   const cartSum = () => {
     let sum = 0;
@@ -38,18 +56,30 @@ const Cart = () => {
         <div className="cart__summary">
           <div className="cart__summary--type">
             <label>
-              <input type="checkbox" />
+              <input
+                type="checkbox"
+                readOnly
+                checked={payType === "Płatność kartą" ? true : false}
+                onClick={() => setPayType("Płatność kartą")}
+              />
               Płatność kartą
             </label>
             <label>
-              <input type="checkbox" />
-              Płatność przy odbiorze
+              <input
+                type="checkbox"
+                readOnly
+                onClick={() => setPayType("Płatność gotówką")}
+                checked={payType === "Płatność gotówką" ? true : false}
+              />
+              Płatność gotówką
             </label>
           </div>
           <div className="cart__summary--total">
             <h3>Łącznie do zapłaty: {cartSum()} zł</h3>
           </div>
-          <button className="cart__summary--submit">Zamawiam</button>
+          <button className="cart__summary--submit" onClick={submitOrder}>
+            Zamawiam
+          </button>
         </div>
       </section>
     </section>

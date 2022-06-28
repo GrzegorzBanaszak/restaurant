@@ -3,7 +3,7 @@
 
 .dishes {
   &__container {
-    padding-top: toRem(94);
+    @include fixNavbar;
     min-height: 100vh;
     background-color: #eeeeee;
   }

@@ -7,11 +7,13 @@ const aplliedStyles = (color) => {
 };
 const Spinner = ({ color }) => {
   return (
-    <div className="lds-ring">
-      <div style={aplliedStyles(color)}></div>
-      <div style={aplliedStyles(color)}></div>
-      <div style={aplliedStyles(color)}></div>
-      <div style={aplliedStyles(color)}></div>
+    <div className="spinner">
+      <div className="lds-ring">
+        <div style={aplliedStyles(color)}></div>
+        <div style={aplliedStyles(color)}></div>
+        <div style={aplliedStyles(color)}></div>
+        <div style={aplliedStyles(color)}></div>
+      </div>
     </div>
   );
 };

@@ -48,11 +48,7 @@ const Register = () => {
     }
   };
   if (isLoading) {
-    return (
-      <div className="spiner__container">
-        <Spinner color="white" />
-      </div>
-    );
+    return <Spinner color="white" />;
   }
 
   return (

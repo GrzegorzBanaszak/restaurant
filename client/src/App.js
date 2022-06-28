@@ -7,6 +7,7 @@ import Login from "./pages/Login";
 import OurDishes from "./pages/OurDishes";
 import Register from "./pages/Register";
 import "./styles/main.scss";
+import User from "./pages/User";
 function App() {
   return (
     <BrowserRouter>
@@ -18,6 +19,7 @@ function App() {
           <Route path="dishes" element={<OurDishes />} />
           <Route path="cart" element={<Cart />} />
           <Route path="make-dish" element={<MakeDishes />} />
+          <Route path="user" element={<User />} />
         </Route>
       </Routes>
     </BrowserRouter>
